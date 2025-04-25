@@ -23,78 +23,101 @@ public class Player implements Character
 		this.deadState = new DeadState(this);
 		this.currentState = this.baseState;
 	}
+	
 	@Override
-	public void performAction(Character target) {
-		/// ??? Strategy
+	public void playTurn(Character opponent) 
+	{
+		/// ??? 
+	}
+	
+	
+	@Override
+	public void performAction(Character target) 
+	{
+		/// ??? 
 	}
 
 	@Override
-	public CharacterStats getCharacterStats() {
+	public CharacterStats getCharacterStats() 
+	{
 		return this.characterStats;
 	}
 
 	@Override
-	public void setCurrentState(CharacterState characterState) {
+	public void setCurrentState(CharacterState characterState) 
+	{
 		this.currentState = characterState;
 	}
 
 	@Override
-	public BaseState getBaseState() {
+	public BaseState getBaseState() 
+	{
 		return this.baseState;
 	}
 
 	@Override
-	public BleedingState getBleedingState() {
+	public BleedingState getBleedingState() 
+	{
 		return this.bleedingState;
 	}
 
 	@Override
-	public ParalysisState getParalysisState() {
+	public ParalysisState getParalysisState() 
+	{
 		return this.paralysisState;
 	}
 
 	@Override
-	public SlowDownState getSlowDownState() {
+	public SlowDownState getSlowDownState() 
+	{
 		return this.slowDownState;
 	}
 
 	@Override
-	public void performEffect() {
+	public void performEffect() 
+	{
 		this.currentState.performEffect();
 	}
 
 	@Override
-	public void removeSideEffect() {
+	public void removeSideEffect() 
+	{
 		this.currentState.removeSideEffect();
 	}
 
 	@Override
-	public void applyParalysis() {
+	public void applyParalysis() 
+	{
 		this.currentState.applyParalysis();
 	}
 
 	@Override
-	public void applyBleeding() {
+	public void applyBleeding() 
+	{
 		this.currentState.applyBleeding();
 	}
 
 	@Override
-	public void applySlowDown() {
+	public void applySlowDown() 
+	{
 		this.currentState.applySlowDown();
 	}
 
 	@Override
-	public DeadState getDeadState() {
+	public DeadState getDeadState() 
+	{
 		return this.deadState;
 	}
 
 	@Override
-	public void killCharacter() {
+	public void killCharacter() 
+	{
 		this.currentState.killCharacter();
 	}
 
 	@Override
-	public CharacterState getCurrentState() {
+	public CharacterState getCurrentState() 
+	{
 		return this.currentState;
 	}
 

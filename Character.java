@@ -4,6 +4,7 @@ package com.utad.ds.proyectoFinal;
 public interface Character 
 {
 	public abstract void performAction(Character target);
+	public abstract void playTurn(Character opponent);
 	public abstract CharacterStats getCharacterStats();
 	public abstract void setCurrentState(CharacterState characterState);
 	public abstract CharacterState getCurrentState();

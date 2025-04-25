@@ -29,7 +29,7 @@ public abstract class Enemy implements Character
 		this.deadState = new DeadState(this);
 		this.currentState = this.baseState;
 	}
-	public void playTurn() 
+	public void playTurn(Character opponent) 
 	{
 		this.characterStats.setReflecting(false);
 		this.characterStats.setGuarding(false);
@@ -37,7 +37,7 @@ public abstract class Enemy implements Character
 		this.performEffect();
 		if(this.characterStats.getCanAttack())
 		{
-			//TODO: Hay que acceder al usuario this.performAction();
+			this.performAction(opponent);
 			this.useSkill();
 		}
 	}
@@ -70,7 +70,7 @@ public abstract class Enemy implements Character
 	
 	public void performAction(Character target) 
 	{
-		this.enemyBehaviorStrategy.chooseBehavior(target);
+		this.enemyBehaviorStrategy.chooseBehavior(target);	//Delegacion por agregacion
 	}
 	public CharacterStats getCharacterStats() 
 	{
