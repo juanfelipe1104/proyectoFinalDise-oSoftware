@@ -2,6 +2,8 @@ package com.utad.ds.proyectoFinal;
 
 public class CharacterStats 
 {
+	private String name; //nombre
+	
 	private Integer strength;   //Ataque fisico
 	private Integer magic;    //Ataque magico
 	private Integer physicalDef;	//Defensa fisica
@@ -62,7 +64,11 @@ public class CharacterStats
 	public Boolean getGuarding() {	return this.guarding;	}
 	public void setGuarding(Boolean guarding) {	this.guarding = guarding;	}
 	
+	public String getName() {	return this.name;	}
+	public void setName(String name) {	this.name = name;	}
+	
 	
 	
 	
 }
+
