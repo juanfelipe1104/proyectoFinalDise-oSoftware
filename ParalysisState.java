@@ -2,8 +2,6 @@ package com.utad.ds.proyectoFinal;
 
 import java.util.Random;
 
-import com.utad.ds.proyectoFinal.common.Character;
-
 public class ParalysisState implements CharacterStateTransitions {
 	private Character character;
 	public ParalysisState(Character character) {

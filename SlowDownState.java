@@ -1,7 +1,5 @@
 package com.utad.ds.proyectoFinal;
 
-import com.utad.ds.proyectoFinal.common.Character;
-
 public class SlowDownState implements CharacterStateTransitions {
 	public static final Integer BASE_SPEED = 30;
 	private Character character;
