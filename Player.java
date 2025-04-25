@@ -1,6 +1,7 @@
 package com.utad.ds.proyectoFinal;
 
-public class Player implements Character {
+public class Player implements Character 
+{
 	protected CharacterStats characterStats;
 	protected CharacterState currentState;
 	protected BaseState baseState;
@@ -23,7 +24,7 @@ public class Player implements Character {
 		this.currentState = this.baseState;
 	}
 	@Override
-	public void performAction() {
+	public void performAction(Character target) {
 		/// ??? Strategy
 	}
 

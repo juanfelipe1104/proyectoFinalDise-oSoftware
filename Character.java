@@ -3,7 +3,7 @@ package com.utad.ds.proyectoFinal;
 //Define el comportamiento de los personajes
 public interface Character 
 {
-	public abstract void performAction();
+	public abstract void performAction(Character target);
 	public abstract CharacterStats getCharacterStats();
 	public abstract void setCurrentState(CharacterState characterState);
 	public abstract CharacterState getCurrentState();
