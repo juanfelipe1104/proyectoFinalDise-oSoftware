@@ -25,7 +25,7 @@ public class MostolesInfernalExecutioner extends Enemy implements InfernalExecut
 	}
 
 	@Override
-	public void increaseStats(CharacterStats characterStats) 
+	public void increaseStats() 
 	{
 		if(super.characterStats.getHP()<=super.characterStats.getMaxHP())
 		{

@@ -26,7 +26,7 @@ public class MagicForestInfernalExecutioner extends Enemy implements InfernalExe
 	}
 
 	@Override
-	public void increaseStats(CharacterStats characterStats) 
+	public void increaseStats() 
 	{
 		if(super.characterStats.getHP()<=super.characterStats.getMaxHP())
 		{
@@ -40,5 +40,6 @@ public class MagicForestInfernalExecutioner extends Enemy implements InfernalExe
 	{	
 		this.ignoreDefense();
 	}
+
 
 }
