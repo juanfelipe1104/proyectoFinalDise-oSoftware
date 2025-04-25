@@ -21,8 +21,33 @@ public class CharacterStats
 	private Integer magicBoost;
 	private Integer	guardBoost;
 	
-	//Para saber si el personaje se esta defendiendo
+	
 	private Boolean guarding;
+	private Boolean reflecting;
+	private Integer guardingPercentage;
+	private Boolean canAttack;
+	
+	public CharacterStats(String name,Integer strengh,Integer magic,Integer physicalDef,Integer magicDef,Integer speed,Integer MaxHP,Integer MaxMP)
+	{
+		this.name = name;
+		this.strength = strengh;
+		this.magic = magic;
+		this.physicalDef = physicalDef;
+		this.magicDef = magicDef;
+		this.speed = speed;
+		this.MaxHP = MaxHP;
+		this.HP = this.MaxHP;
+		this.MaxMP = MaxMP;
+		this.MP = this.MaxMP;
+		this.atkBoost =0;
+		this.guardBoost =0;
+		this.guardBoost =0;
+		this.guarding = false;
+		this.reflecting = false;
+		this.guardingPercentage =0;
+		this.canAttack = true;
+		
+	}
 	
 	
 	public Integer getStrength() {	return this.strength;	}
@@ -64,10 +89,14 @@ public class CharacterStats
 	public Boolean getGuarding() {	return this.guarding;	}
 	public void setGuarding(Boolean guarding) {	this.guarding = guarding;	}
 	
-	public String getName() {	return this.name;	}
-	public void setName(String name) {	this.name = name;	}
+	public Boolean getReflecting() {	return this.reflecting;	}
+	public void setReflecting(Boolean reflecting) {	this.reflecting= reflecting;	}
 	
+	public Integer getGuardingPercentage()  {	return this.guardingPercentage;	}
+	public void setGuardingPercentage(Integer guardingPercentage) {	this.guardingPercentage= guardingPercentage;	}
 	
+	public Boolean getCanAttack() {	return this.canAttack;	}
+	public void setCanAttack(Boolean canAttack) {	this.canAttack = canAttack;	}
 	
 	
 }
