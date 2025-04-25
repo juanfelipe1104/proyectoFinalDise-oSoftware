@@ -4,7 +4,6 @@ public class LandOfDragonsArcaneAbomination extends Enemy implements ArcaneAbomi
 {
 	public static final CharacterStats DEFAULT_STATS  = new CharacterStats("Arcane Abobination",0,60,45,60,20,80,300);
 	public static final Double INCREASE_STATS = 1.3;
-	private CharacterStats characterStats;
 	public LandOfDragonsArcaneAbomination() 
 	{
 		this(LandOfDragonsArcaneAbomination.DEFAULT_STATS);
@@ -16,7 +15,7 @@ public class LandOfDragonsArcaneAbomination extends Enemy implements ArcaneAbomi
 	}
 		
 	@Override
-	public void increaseStats(CharacterStats characterStats) 
+	public void increaseStats() 
 	{
 		if(super.characterStats.getHP()<=super.characterStats.getMaxHP())
 		{

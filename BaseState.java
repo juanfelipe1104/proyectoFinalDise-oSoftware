@@ -1,6 +1,6 @@
 package com.utad.ds.proyectoFinal;
 
-public class BaseState implements CharacterStateTransitions {
+public class BaseState implements CharacterState {
 	private Character character;
 	public BaseState(Character character) {
 		this.character = character;
@@ -17,17 +17,17 @@ public class BaseState implements CharacterStateTransitions {
 
 	@Override
 	public void applyParalysis() {
-		this.character.setCharacterState(this.character.getParalysisState());
+		this.character.setCurrentState(this.character.getParalysisState());
 	}
 
 	@Override
 	public void applyBleeding() {
-		this.character.setCharacterState(this.character.getBleedingState());
+		this.character.setCurrentState(this.character.getBleedingState());
 	}
 
 	@Override
 	public void applySlowDown() {
-		this.character.setCharacterState(this.character.getSlowDownState());
+		this.character.setCurrentState(this.character.getSlowDownState());
 	}
 
 }

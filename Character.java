@@ -5,7 +5,7 @@ public interface Character
 {
 	public abstract void performAction();
 	public abstract CharacterStats getCharacterStats();
-	public abstract void setCharacterState(CharacterState characterState);
+	public abstract void setCurrentState(CharacterState characterState);
 	public abstract BaseState getBaseState();
 	public abstract BleedingState getBleedingState();
 	public abstract ParalysisState getParalysisState();

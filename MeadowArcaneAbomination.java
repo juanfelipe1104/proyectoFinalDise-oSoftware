@@ -4,7 +4,7 @@ public class MeadowArcaneAbomination extends Enemy implements ArcaneAbomination
 {
 	public static final CharacterStats DEFAULT_STATS  = new CharacterStats("Arcane Abobination",0,20,15,20,10,40,100);
 	public static final Double INCREASE_STATS = 1.1;
-	private CharacterStats characterStats;
+	
 	public MeadowArcaneAbomination() 
 	{
 		this(MeadowArcaneAbomination.DEFAULT_STATS);
@@ -16,7 +16,7 @@ public class MeadowArcaneAbomination extends Enemy implements ArcaneAbomination
 	}
 		
 	@Override
-	public void increaseStats(CharacterStats stats) 
+	public void increaseStats() 
 	{
 		if(super.characterStats.getHP()<=super.characterStats.getMaxHP())
 		{

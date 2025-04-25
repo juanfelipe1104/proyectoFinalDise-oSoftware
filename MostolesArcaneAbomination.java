@@ -4,7 +4,6 @@ public class MostolesArcaneAbomination extends Enemy implements ArcaneAbominatio
 {
 	public static final CharacterStats DEFAULT_STATS  = new CharacterStats("Arcane Abomination",0,80,60,80,40,160,400);
 	public static final Double INCREASE_STATS = 1.4;
-	private CharacterStats characterStats;
 	public MostolesArcaneAbomination() 
 	{
 		this(MostolesArcaneAbomination.DEFAULT_STATS);
@@ -17,7 +16,7 @@ public class MostolesArcaneAbomination extends Enemy implements ArcaneAbominatio
 	}
 		
 	@Override
-	public void increaseStats(CharacterStats stats) 
+	public void increaseStats() 
 	{
 		if(this.characterStats.getHP()<=this.characterStats.getMaxHP())
 		{

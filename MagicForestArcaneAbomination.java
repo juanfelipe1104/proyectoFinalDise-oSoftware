@@ -5,7 +5,6 @@ public class MagicForestArcaneAbomination extends Enemy implements ArcaneAbomina
 {
 	public static final CharacterStats DEFAULT_STATS  = new CharacterStats("Arcane Abobination",0,40,30,40,20,80,200);
 	public static final Double INCREASE_STATS = 1.2;
-	private CharacterStats characterStats;
 	public MagicForestArcaneAbomination() 
 	{
 		this(MagicForestArcaneAbomination.DEFAULT_STATS);
@@ -17,7 +16,7 @@ public class MagicForestArcaneAbomination extends Enemy implements ArcaneAbomina
 	}
 		
 	@Override
-	public void increaseStats(CharacterStats stats) 
+	public void increaseStats() 
 	{
 		if(super.characterStats.getHP()<=super.characterStats.getMaxHP())
 		{

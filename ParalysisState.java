@@ -2,7 +2,7 @@ package com.utad.ds.proyectoFinal;
 
 import java.util.Random;
 
-public class ParalysisState implements CharacterStateTransitions {
+public class ParalysisState implements CharacterState{
 	private Character character;
 	public ParalysisState(Character character) {
 		this.character = character;
@@ -19,7 +19,7 @@ public class ParalysisState implements CharacterStateTransitions {
 
 	@Override
 	public void removeSideEffect() {
-		this.character.setCharacterState(this.character.getBaseState());
+		this.character.setCurrentState(this.character.getBaseState());
 	}
 
 	@Override
