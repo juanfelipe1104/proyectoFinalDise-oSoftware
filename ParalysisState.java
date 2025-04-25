@@ -38,5 +38,8 @@ public class ParalysisState implements CharacterState{
 	public void applySlowDown() {
 		// Can't
 	}
-
+	@Override
+	public void killCharacter() {
+		this.character.setCurrentState(this.character.getDeadState());
+	}
 }

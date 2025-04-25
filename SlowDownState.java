@@ -36,5 +36,8 @@ public class SlowDownState implements CharacterState {
 		// Can't
 		
 	}
-	
+	@Override
+	public void killCharacter() {
+		this.character.setCurrentState(this.character.getDeadState());
+	}
 }

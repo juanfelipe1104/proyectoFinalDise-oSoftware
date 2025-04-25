@@ -29,5 +29,8 @@ public class BaseState implements CharacterState {
 	public void applySlowDown() {
 		this.character.setCurrentState(this.character.getSlowDownState());
 	}
-
+	@Override
+	public void killCharacter() {
+		this.character.setCurrentState(this.character.getDeadState());
+	}
 }

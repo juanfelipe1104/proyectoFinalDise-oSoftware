@@ -1,6 +1,6 @@
 package com.utad.ds.proyectoFinal;
 
-public abstract class Enemy implements Character{
+public class Player implements Character {
 	protected CharacterStats characterStats;
 	protected CharacterState currentState;
 	protected BaseState baseState;
@@ -8,7 +8,11 @@ public abstract class Enemy implements Character{
 	protected ParalysisState paralysisState;
 	protected SlowDownState slowDownState;
 	protected DeadState deadState;
-	public Enemy(CharacterStats characterStats) {
+	public Player(String name) {
+		this(new CharacterStats(name, 50, 50, 50, 50, 50, 100, 100));
+	}
+	
+	public Player(CharacterStats characterStats) {
 		this.characterStats = characterStats;
 		
 		this.baseState = new BaseState(this);
@@ -18,55 +22,79 @@ public abstract class Enemy implements Character{
 		this.deadState = new DeadState(this);
 		this.currentState = this.baseState;
 	}
-	public void playTurn() {
-		this.performAction();
-		this.useSkill();
-	}
-	public void performEffect() {
-		this.currentState.performEffect();
-	}
-	public void removeSideEffect() {
-		this.currentState.removeSideEffect();
-	}
-	public void applyParalysis() {
-		this.currentState.applyParalysis();
-	}
-	public void applyBleeding() {
-		this.currentState.applyBleeding();
-	}
-	public void applySlowDown() {
-		this.currentState.applySlowDown();
-	}
-	public void killCharacter() {
-		this.currentState.killCharacter();
-	}
-	public abstract void useSkill();
-	public abstract void increaseStats();
+	@Override
 	public void performAction() {
-		// ??? Strategy
+		/// ??? Strategy
 	}
+
+	@Override
 	public CharacterStats getCharacterStats() {
 		return this.characterStats;
 	}
+
+	@Override
 	public void setCurrentState(CharacterState characterState) {
 		this.currentState = characterState;
 	}
-	public CharacterState getCurrentState() {
-		return this.currentState;
-	}
+
+	@Override
 	public BaseState getBaseState() {
 		return this.baseState;
 	}
+
+	@Override
 	public BleedingState getBleedingState() {
 		return this.bleedingState;
 	}
+
+	@Override
 	public ParalysisState getParalysisState() {
 		return this.paralysisState;
 	}
+
+	@Override
 	public SlowDownState getSlowDownState() {
 		return this.slowDownState;
 	}
+
+	@Override
+	public void performEffect() {
+		this.currentState.performEffect();
+	}
+
+	@Override
+	public void removeSideEffect() {
+		this.currentState.removeSideEffect();
+	}
+
+	@Override
+	public void applyParalysis() {
+		this.currentState.applyParalysis();
+	}
+
+	@Override
+	public void applyBleeding() {
+		this.currentState.applyBleeding();
+	}
+
+	@Override
+	public void applySlowDown() {
+		this.currentState.applySlowDown();
+	}
+
+	@Override
 	public DeadState getDeadState() {
 		return this.deadState;
 	}
+
+	@Override
+	public void killCharacter() {
+		this.currentState.killCharacter();
+	}
+
+	@Override
+	public CharacterState getCurrentState() {
+		return this.currentState;
+	}
+
 }

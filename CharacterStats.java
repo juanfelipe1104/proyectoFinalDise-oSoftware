@@ -27,7 +27,7 @@ public class CharacterStats
 	private Integer guardingPercentage;
 	private Boolean canAttack;
 	
-	public CharacterStats(String name,Integer strengh,Integer magic,Integer physicalDef,Integer magicDef,Integer speed,Integer MaxHP,Integer MaxMP)
+	public CharacterStats(String name, Integer strengh, Integer magic, Integer physicalDef, Integer magicDef, Integer speed, Integer MaxHP,Integer MaxMP)
 	{
 		this.name = name;
 		this.strength = strengh;

@@ -1,35 +1,43 @@
 package com.utad.ds.proyectoFinal;
 
-public class BleedingState implements CharacterState{
+public class DeadState implements CharacterState {
 	private Character character;
-	public BleedingState(Character character) {
+	public DeadState(Character character) {
 		this.character = character;
 	}
 	@Override
 	public void performEffect() {
-		this.character.getCharacterStats().setHP((int)(this.character.getCharacterStats().getHP() * 0.95));
+		// None
 	}
+
 	@Override
 	public void removeSideEffect() {
-		this.character.setCurrentState(this.character.getBaseState());
+		// None
+		
 	}
+
 	@Override
 	public void applyParalysis() {
-		// Can't
+		// None
 		
 	}
+
 	@Override
 	public void applyBleeding() {
-		// Can't
+		// None
 		
 	}
+
 	@Override
 	public void applySlowDown() {
-		// Can't
+		// None
 		
 	}
+
 	@Override
 	public void killCharacter() {
-		this.character.setCurrentState(this.character.getDeadState());
+		// None
+		
 	}
+
 }

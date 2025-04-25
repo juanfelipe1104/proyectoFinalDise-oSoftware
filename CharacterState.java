@@ -6,4 +6,5 @@ public interface CharacterState {
 	public abstract void applyParalysis();
 	public abstract void applyBleeding();
 	public abstract void applySlowDown();
+	public abstract void killCharacter();
 }
