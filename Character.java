@@ -10,4 +10,9 @@ public interface Character
 	public abstract BleedingState getBleedingState();
 	public abstract ParalysisState getParalysisState();
 	public abstract SlowDownState getSlowDownState();
+	public abstract void performEffect();
+	public abstract void removeSideEffect();
+	public abstract void applyParalysis();
+	public abstract void applyBleeding();
+	public abstract void applySlowDown();
 }
