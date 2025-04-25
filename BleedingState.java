@@ -8,6 +8,7 @@ public class BleedingState implements CharacterState{
 	@Override
 	public void performEffect() {
 		this.character.getCharacterStats().setHP((int)(this.character.getCharacterStats().getHP() * 0.95));
+		System.out.println(this.character.getCharacterStats().getName() + " sufre de sangrado");
 	}
 	@Override
 	public void removeSideEffect() {

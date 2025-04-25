@@ -9,6 +9,7 @@ public class SlowDownState implements CharacterState {
 	@Override
 	public void performEffect() {
 		this.character.getCharacterStats().setSpeed((int)(this.character.getCharacterStats().getSpeed()*0.90));
+		System.out.println(this.character.getCharacterStats().getName() + " ha disminuido su velocidad");
 	}
 
 	@Override

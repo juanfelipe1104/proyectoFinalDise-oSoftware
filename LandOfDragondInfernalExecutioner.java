@@ -25,7 +25,7 @@ public class LandOfDragondInfernalExecutioner extends Enemy implements InfernalE
 	}
 
 	@Override
-	public void increaseStats(CharacterStats characterStats) 
+	public void increaseStats() 
 	{
 		if(super.characterStats.getHP()<=super.characterStats.getMaxHP())
 		{
@@ -39,5 +39,6 @@ public class LandOfDragondInfernalExecutioner extends Enemy implements InfernalE
 	{	
 		this.ignoreDefense();
 	}
+
 
 }

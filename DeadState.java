@@ -7,7 +7,7 @@ public class DeadState implements CharacterState {
 	}
 	@Override
 	public void performEffect() {
-		// None
+		System.out.println(this.character.getCharacterStats().getName() + " esta muerto");
 	}
 
 	@Override

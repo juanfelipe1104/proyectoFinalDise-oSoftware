@@ -11,6 +11,7 @@ public class ParalysisState implements CharacterState{
 	public void performEffect() {
 		if(new Random().nextInt(0, 99) <= 30) {
 			this.character.getCharacterStats().setCanAttack(false);
+			System.out.println(this.character.getCharacterStats().getName() + " esta paralizado. No puede atacar");
 		}
 		else {
 			this.character.getCharacterStats().setCanAttack(true);
