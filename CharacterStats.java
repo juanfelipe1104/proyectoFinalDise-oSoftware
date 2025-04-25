@@ -19,6 +19,9 @@ public class CharacterStats
 	private Integer magicBoost;
 	private Integer	guardBoost;
 	
+	//Para saber si el personaje se esta defendiendo
+	private Boolean guarding;
+	
 	
 	public Integer getStrength() {	return this.strength;	}
 	public void setStrength(Integer strength) {	this.strength = strength;	}
@@ -55,6 +58,11 @@ public class CharacterStats
 	
 	public Integer getGuardBoost() {	return this.guardBoost;	}
 	public void setGuardBoost(Integer guardBoost) {	this.guardBoost = guardBoost;	}
+	
+	public Boolean getGuarding() {	return this.guarding;	}
+	public void setGuarding(Boolean guarding) {	this.guarding = guarding;	}
+	
+	
 	
 	
 }
