@@ -3,7 +3,7 @@ package com.utad.ds.proyectoFinal;
 
 public class MagicForestArcaneAbomination implements ArcaneAbomination
 {
-	public static final CharacterStats DEFAULT_STATS  = new CharacterStats("Arcane Abobination",40,0,30,40,20,80,0);
+	public static final CharacterStats DEFAULT_STATS  = new CharacterStats("Arcane Abobination",0,40,30,40,20,80,200);
 	public static final Double INCREASE_STATS = 1.2;
 	private CharacterStats characterStats;
 	public MagicForestArcaneAbomination() 

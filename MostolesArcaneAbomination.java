@@ -2,7 +2,7 @@ package com.utad.ds.proyectoFinal;
 
 public class MostolesArcaneAbomination implements ArcaneAbomination
 {
-	public static final CharacterStats DEFAULT_STATS  = new CharacterStats("Arcane Abomination",80,0,60,80,40,160,0);
+	public static final CharacterStats DEFAULT_STATS  = new CharacterStats("Arcane Abomination",0,80,60,80,40,160,400);
 	public static final Double INCREASE_STATS = 1.4;
 	private CharacterStats characterStats;
 	public MostolesArcaneAbomination() 

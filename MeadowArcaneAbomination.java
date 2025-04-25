@@ -2,7 +2,7 @@ package com.utad.ds.proyectoFinal;
 
 public class MeadowArcaneAbomination implements ArcaneAbomination
 {
-	public static final CharacterStats DEFAULT_STATS  = new CharacterStats("Arcane Abobination",20,0,15,20,10,40,0);
+	public static final CharacterStats DEFAULT_STATS  = new CharacterStats("Arcane Abobination",0,20,15,20,10,40,100);
 	public static final Double INCREASE_STATS = 1.1;
 	private CharacterStats characterStats;
 	public MeadowArcaneAbomination() 

@@ -2,7 +2,7 @@ package com.utad.ds.proyectoFinal;
 
 public class LandOfDragonsArcaneAbomination implements ArcaneAbomination
 {
-	public static final CharacterStats DEFAULT_STATS  = new CharacterStats("Arcane Abobination",60,0,45,60,20,80,0);
+	public static final CharacterStats DEFAULT_STATS  = new CharacterStats("Arcane Abobination",0,60,45,60,20,80,300);
 	public static final Double INCREASE_STATS = 1.3;
 	private CharacterStats characterStats;
 	public LandOfDragonsArcaneAbomination() 
