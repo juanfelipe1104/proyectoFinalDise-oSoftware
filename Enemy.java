@@ -3,6 +3,8 @@ package com.utad.ds.proyectoFinal;
 public abstract class Enemy implements Character
 {
 	public static final EnemyBehaviorStrategy DEFAULT_STRATEGY;
+	public static final Integer MP_COST = 50;
+	
 	protected CharacterStats characterStats;
 	protected CharacterState currentState;
 	protected BaseState baseState;
@@ -12,6 +14,11 @@ public abstract class Enemy implements Character
 	protected DeadState deadState;
 	
 	protected EnemyBehaviorStrategy enemyBehaviorStrategy;
+	
+	protected ActionComponent physicalAttackAction;
+	protected ActionComponent magicAttackAction;
+	protected ActionComponent guardAction;
+	protected ActionComponent healAction;
 	
 	static
 	{
@@ -28,6 +35,13 @@ public abstract class Enemy implements Character
 		this.slowDownState = new SlowDownState(this);
 		this.deadState = new DeadState(this);
 		this.currentState = this.baseState;
+		
+		
+		//Las acciones al principio son basicas, luego las iremos decorando
+		this.physicalAttackAction = new BaseAttackAction();
+		this.magicAttackAction = new BaseMagicAction();
+		this.healAction = new BaseHealingAction();
+		this.guardAction = new BaseGuardAction();
 	}
 	public void playTurn(Character opponent) 
 	{
@@ -70,7 +84,16 @@ public abstract class Enemy implements Character
 	
 	public void performAction(Character target) 
 	{
-		this.enemyBehaviorStrategy.chooseBehavior(target);	//Delegacion por agregacion
+		try
+		{
+			this.enemyBehaviorStrategy.chooseBehavior(this, target);
+		}
+		
+		catch(ActionException e)
+		{
+			System.out.println(e.getMessage());
+		}
+		
 	}
 	public CharacterStats getCharacterStats() 
 	{
@@ -104,4 +127,37 @@ public abstract class Enemy implements Character
 	{
 		return this.deadState;
 	}
+	public ActionComponent getPhysicalAttackAction() 
+	{
+		return this.physicalAttackAction;
+	}
+	public void setPhysicalAttackAction(ActionComponent physicalAttackAction) 
+	{
+		this.physicalAttackAction = physicalAttackAction;
+	}
+	public ActionComponent getMagicAttackAction() {
+		return this.magicAttackAction;
+	}
+	public void setMagicAttackAction(ActionComponent magicAttackAction) 
+	{
+		this.magicAttackAction = magicAttackAction;
+	}
+	public ActionComponent getGuardAction() 
+	{
+		return this.guardAction;
+	}
+	public void setGuardAction(ActionComponent guardAction) 
+	{
+		this.guardAction = guardAction;
+	}
+	public ActionComponent getHealAction() 
+	{
+		return this.healAction;
+	}
+	public void setHealAction(ActionComponent healAction) 
+	{
+		this.healAction = healAction;
+	}
+	
+	
 }

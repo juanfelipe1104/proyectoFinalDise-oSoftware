@@ -9,6 +9,12 @@ public class Player implements Character
 	protected ParalysisState paralysisState;
 	protected SlowDownState slowDownState;
 	protected DeadState deadState;
+	
+	protected ActionComponent physicalAttackAction;
+	protected ActionComponent magicAttackAction;
+	protected ActionComponent guardAction;
+	protected ActionComponent healAction;
+	
 	public Player(String name) {
 		this(new CharacterStats(name, 50, 50, 50, 50, 50, 100, 100));
 	}
@@ -22,6 +28,12 @@ public class Player implements Character
 		this.slowDownState = new SlowDownState(this);
 		this.deadState = new DeadState(this);
 		this.currentState = this.baseState;
+		
+		//Las acciones al principio son basicas, luego las iremos decorando
+		this.physicalAttackAction = new BaseAttackAction();
+		this.magicAttackAction = new BaseMagicAction();
+		this.healAction = new BaseHealingAction();
+		this.guardAction = new BaseGuardAction();
 	}
 	
 	@Override
@@ -119,6 +131,38 @@ public class Player implements Character
 	public CharacterState getCurrentState() 
 	{
 		return this.currentState;
+	}
+	
+	public ActionComponent getPhysicalAttackAction() 
+	{
+		return this.physicalAttackAction;
+	}
+	public void setPhysicalAttackAction(ActionComponent physicalAttackAction) 
+	{
+		this.physicalAttackAction = physicalAttackAction;
+	}
+	public ActionComponent getMagicAttackAction() {
+		return this.magicAttackAction;
+	}
+	public void setMagicAttackAction(ActionComponent magicAttackAction) 
+	{
+		this.magicAttackAction = magicAttackAction;
+	}
+	public ActionComponent getGuardAction() 
+	{
+		return this.guardAction;
+	}
+	public void setGuardAction(ActionComponent guardAction) 
+	{
+		this.guardAction = guardAction;
+	}
+	public ActionComponent getHealAction() 
+	{
+		return this.healAction;
+	}
+	public void setHealAction(ActionComponent healAction) 
+	{
+		this.healAction = healAction;
 	}
 
 }

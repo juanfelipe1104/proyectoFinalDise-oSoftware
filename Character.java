@@ -19,4 +19,13 @@ public interface Character
 	public abstract void applyBleeding();
 	public abstract void applySlowDown();
 	public abstract void killCharacter();
+	
+	public abstract ActionComponent getPhysicalAttackAction();
+	public abstract void setPhysicalAttackAction(ActionComponent physicalAttackAction);
+	public abstract ActionComponent getMagicAttackAction();
+	public abstract void setMagicAttackAction(ActionComponent magicAttackAction);
+	public abstract ActionComponent getGuardAction();
+	public abstract void setGuardAction(ActionComponent guardAction);
+	public abstract ActionComponent getHealAction();
+	public abstract void setHealAction(ActionComponent healAction);
 }

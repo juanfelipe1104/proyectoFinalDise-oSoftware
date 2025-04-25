@@ -2,22 +2,22 @@ package com.utad.ds.proyectoFinal;
 
 import java.util.Random;
 
-public class BalancedBehaviorStrategy implements EnemyBehaviorStrategy
+public class MagicOffensiveBehaviorStrategy implements EnemyBehaviorStrategy
 {
-	//25% atacar, 25% ataque magico, 25% curacion, 25% proteccion
+	//20% atacar, 60% ataque magico, 20% curacion, 20% proteccion
 	public void chooseBehavior(Character performer, Character target) throws ActionException
 	{
 		Random random = new Random();
 		Integer numRandom = random.nextInt(0, 99) + 1;
 			
 		//Ataque fisico
-		if(numRandom <=25)
+		if(numRandom <=20)
 		{
 			performer.getPhysicalAttackAction().performAction(performer, target);
 		}
 			
 		//Ataque magico
-		else if(numRandom > 25 && numRandom <=50)
+		else if(numRandom > 20 && numRandom <=80)
 		{
 			if(performer.getCharacterStats().getMP() >= Enemy.MP_COST)
 			{
@@ -33,7 +33,7 @@ public class BalancedBehaviorStrategy implements EnemyBehaviorStrategy
 		}
 			
 		//Curarse
-		else if(numRandom > 50 && numRandom <=75)
+		else if(numRandom > 80 && numRandom <=90)
 		{
 			if(performer.getCharacterStats().getMP() >= Enemy.MP_COST)
 			{
