@@ -19,7 +19,7 @@ public class MagicForestIroncladBrute extends Enemy implements IroncladBrute
 	@Override
 	public void increaseStats() 
 	{
-		if(super.characterStats.getHP()<=super.characterStats.getMaxHP())
+		if(super.characterStats.getHP()<=(super.characterStats.getMaxHP())*0.3)
 		{
 			super.characterStats.setMagicDef((int)(super.characterStats.getMagicDef()*MagicForestIroncladBrute.INCREASE_STATS));
 			super.characterStats.setPhysicalDef((int)(super.characterStats.getPhysicalDef()*MagicForestIroncladBrute.INCREASE_STATS));
@@ -30,15 +30,14 @@ public class MagicForestIroncladBrute extends Enemy implements IroncladBrute
 	@Override
 	public void useSkill() 
 	{	
-		this.reflect();;
+		this.increasePhysicalDef();
 	}
 
 
 	@Override
-	public void reflect() 
+	public void increasePhysicalDef() 
 	{
-		// TODO Auto-generated method stub
-		
+		super.characterStats.setPhysicalDef((int)(super.characterStats.getPhysicalDef()*LandOfDragonsIroncladBrute.INCREASE_STATS));
 	}
 
 }
