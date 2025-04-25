@@ -1,6 +1,6 @@
 package com.utad.ds.proyectoFinal;
 
-public class MostolesArcaneAbomination implements ArcaneAbomination
+public class MostolesArcaneAbomination extends Enemy implements ArcaneAbomination
 {
 	public static final CharacterStats DEFAULT_STATS  = new CharacterStats("Arcane Abomination",0,80,60,80,40,160,400);
 	public static final Double INCREASE_STATS = 1.4;
@@ -12,7 +12,8 @@ public class MostolesArcaneAbomination implements ArcaneAbomination
 	
 	public MostolesArcaneAbomination(CharacterStats characterStats) 
 	{
-		this.characterStats = characterStats;
+		super(characterStats);
+		
 	}
 		
 	@Override
@@ -30,10 +31,11 @@ public class MostolesArcaneAbomination implements ArcaneAbomination
 		//llamar a realizar otra accion
 	}
 	
+
 	@Override
-	public void usarHabilidad() 
-	{
-		this.followUpAttack();	
+	public void useSkill() 
+	{	
+		this.followUpAttack();
 	}
 		
 

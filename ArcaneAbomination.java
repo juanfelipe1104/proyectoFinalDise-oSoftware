@@ -1,6 +1,6 @@
 package com.utad.ds.proyectoFinal;
 
-public interface ArcaneAbomination extends Enemy
+public interface ArcaneAbomination
 {
 	public void followUpAttack();
 }

@@ -1,6 +1,6 @@
 package com.utad.ds.proyectoFinal;
 
-public class MeadowArcaneAbomination implements ArcaneAbomination
+public class MeadowArcaneAbomination extends Enemy implements ArcaneAbomination
 {
 	public static final CharacterStats DEFAULT_STATS  = new CharacterStats("Arcane Abobination",0,20,15,20,10,40,100);
 	public static final Double INCREASE_STATS = 1.1;
@@ -12,15 +12,15 @@ public class MeadowArcaneAbomination implements ArcaneAbomination
 	
 	public MeadowArcaneAbomination(CharacterStats characterStats) 
 	{
-		this.characterStats = characterStats;
+		super(characterStats);
 	}
 		
 	@Override
 	public void increaseStats(CharacterStats stats) 
 	{
-		if(this.characterStats.getHP()<=this.characterStats.getMaxHP())
+		if(super.characterStats.getHP()<=super.characterStats.getMaxHP())
 		{
-			this.characterStats.setMagic((int)(this.characterStats.getMagic()*MeadowArcaneAbomination.INCREASE_STATS));
+			super.characterStats.setMagic((int)(super.characterStats.getMagic()*MeadowArcaneAbomination.INCREASE_STATS));
 		}
 	}
 
@@ -31,7 +31,7 @@ public class MeadowArcaneAbomination implements ArcaneAbomination
 	}
 	
 	@Override
-	public void usarHabilidad() 
+	public void useSkill() 
 	{
 		this.followUpAttack();	
 	}

@@ -1,7 +1,7 @@
 package com.utad.ds.proyectoFinal;
 
 
-public class MagicForestArcaneAbomination implements ArcaneAbomination
+public class MagicForestArcaneAbomination extends Enemy implements ArcaneAbomination
 {
 	public static final CharacterStats DEFAULT_STATS  = new CharacterStats("Arcane Abobination",0,40,30,40,20,80,200);
 	public static final Double INCREASE_STATS = 1.2;
@@ -13,15 +13,15 @@ public class MagicForestArcaneAbomination implements ArcaneAbomination
 	
 	public MagicForestArcaneAbomination(CharacterStats characterStats) 
 	{
-		this.characterStats = characterStats;
+		super(characterStats);
 	}
 		
 	@Override
 	public void increaseStats(CharacterStats stats) 
 	{
-		if(this.characterStats.getHP()<=this.characterStats.getMaxHP())
+		if(super.characterStats.getHP()<=super.characterStats.getMaxHP())
 		{
-			this.characterStats.setMagic((int)(this.characterStats.getMagic()*MagicForestArcaneAbomination.INCREASE_STATS));
+			super.characterStats.setMagic((int)(super.characterStats.getMagic()*MagicForestArcaneAbomination.INCREASE_STATS));
 		}
 	}
 
@@ -32,7 +32,7 @@ public class MagicForestArcaneAbomination implements ArcaneAbomination
 	}
 	
 	@Override
-	public void usarHabilidad() 
+	public void useSkill() 
 	{
 		this.followUpAttack();	
 	}

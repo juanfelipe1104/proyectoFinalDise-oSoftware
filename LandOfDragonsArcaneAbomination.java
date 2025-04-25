@@ -1,6 +1,6 @@
 package com.utad.ds.proyectoFinal;
 
-public class LandOfDragonsArcaneAbomination implements ArcaneAbomination
+public class LandOfDragonsArcaneAbomination extends Enemy implements ArcaneAbomination
 {
 	public static final CharacterStats DEFAULT_STATS  = new CharacterStats("Arcane Abobination",0,60,45,60,20,80,300);
 	public static final Double INCREASE_STATS = 1.3;
@@ -12,15 +12,15 @@ public class LandOfDragonsArcaneAbomination implements ArcaneAbomination
 	
 	public LandOfDragonsArcaneAbomination(CharacterStats characterStats) 
 	{
-		this.characterStats = characterStats;
+		super(characterStats);
 	}
 		
 	@Override
-	public void increaseStats(CharacterStats stats) 
+	public void increaseStats(CharacterStats characterStats) 
 	{
-		if(this.characterStats.getHP()<=this.characterStats.getMaxHP())
+		if(super.characterStats.getHP()<=super.characterStats.getMaxHP())
 		{
-			this.characterStats.setMagic((int)(this.characterStats.getMagic()*LandOfDragonsArcaneAbomination.INCREASE_STATS));
+			super.characterStats.setMagic((int)(super.characterStats.getMagic()*LandOfDragonsArcaneAbomination.INCREASE_STATS));
 		}
 	}
 
@@ -30,10 +30,11 @@ public class LandOfDragonsArcaneAbomination implements ArcaneAbomination
 		//llamar a realizar otra accion
 	}
 
+
 	@Override
-	public void usarHabilidad() 
-	{
-		this.followUpAttack();	
+	public void useSkill() 
+	{	
+		this.followUpAttack();
 	}
 		
 

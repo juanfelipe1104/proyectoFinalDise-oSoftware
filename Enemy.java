@@ -1,8 +1,13 @@
 package com.utad.ds.proyectoFinal;
 
-public interface Enemy 
+public abstract class Enemy 
 {
-	public void increaseStats(CharacterStats stats);
-	public void usarHabilidad();
+	protected CharacterStats characterStats;
+	public Enemy(CharacterStats characterStats) 
+	{
+		this.characterStats = characterStats;
+	}
+	public abstract void increaseStats(CharacterStats stats);
+	public abstract void useSkill();
 	
 }
