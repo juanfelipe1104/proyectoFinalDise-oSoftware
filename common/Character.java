@@ -22,6 +22,7 @@ public interface Character {
 	public abstract void applyBleeding();
 	public abstract void applySlowDown();
 	public abstract void killCharacter();
+	public abstract void setCurrentAction(ActionComponent currentAction);
 	public abstract ActionComponent getPhysicalAttackAction();
 	public abstract void setPhysicalAttackAction(ActionComponent physicalAttackAction);
 	public abstract ActionComponent getMagicAttackAction();

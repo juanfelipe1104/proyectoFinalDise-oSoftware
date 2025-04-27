@@ -89,4 +89,8 @@ public abstract class GameCharacter implements Character{
 	public ActionComponent getHealAction() { return this.healAction; }
 	@Override
 	public void setHealAction(ActionComponent healAction) { this.healAction = healAction; }
+	@Override
+	public void setCurrentAction(ActionComponent currentAction) {
+		this.currentAction = currentAction;
+	}
 }
