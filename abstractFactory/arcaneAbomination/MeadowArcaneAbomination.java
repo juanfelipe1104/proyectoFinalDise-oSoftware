@@ -1,0 +1,27 @@
+package com.utad.ds.proyectoFinal.abstractFactory.arcaneAbomination;
+
+import com.utad.ds.proyectoFinal.abstractFactory.MeadowAbstractFactory;
+import com.utad.ds.proyectoFinal.common.*;
+
+public class MeadowArcaneAbomination extends Enemy implements ArcaneAbomination{
+	public MeadowArcaneAbomination() {
+		this(new CharacterStats("Arcane Abobination",0,20,15,20,10,40,100));
+	}
+	public MeadowArcaneAbomination(CharacterStats characterStats) {
+		super(characterStats);
+	}	
+	@Override
+	public void increaseStats() {
+		if(super.characterStats.getHP()<=super.characterStats.getMaxHP()){
+			super.characterStats.setMagic((int)(super.characterStats.getMagic()*MeadowAbstractFactory.INCREASE_STATS));
+		}
+	}
+	@Override
+	public void followUpAttack() {	
+		//llamar a realizar otra accion
+	}
+	@Override
+	public void useSkill() {
+		this.followUpAttack();	
+	}
+}
