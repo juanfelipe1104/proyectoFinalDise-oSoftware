@@ -10,7 +10,7 @@ public class Player extends GameCharacter {
 	@Override
 	public void performAction(Character target) {
 		try {
-			this.currentAction.performAction(this, target);
+			super.currentAction.performAction(this, target);
 		}catch(ActionException actionException) {
 			System.out.println(actionException.getMessage());
 		}

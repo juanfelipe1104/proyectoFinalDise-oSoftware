@@ -1,34 +1,25 @@
 package com.utad.ds.proyectoFinal.common;
 
-public class CharacterStats 
-{
+public class CharacterStats {
 	private String name; //nombre
-	
 	private Integer strength;   //Ataque fisico
 	private Integer magic;    //Ataque magico
 	private Integer physicalDef;	//Defensa fisica
 	private Integer magicDef; 	//Defensa magica
-	
 	private Integer speed;
-	
 	private Integer MaxHP;
 	private Integer HP;		//Puntos de vida
 	private Integer MaxMP;
 	private Integer MP;		//Puntos de magia, se consumen al usar ataques magicos
-	
 	//Mejoras para ataque, magia y la accion de defenderse
 	private Integer atkBoost;
 	private Integer magicBoost;
 	private Integer	guardBoost;
-	
-	
 	private Boolean guarding;
 	private Boolean reflecting;
 	private Integer guardingPercentage;
 	private Boolean canAttack;
-	
-	public CharacterStats(String name,Integer strengh,Integer magic,Integer physicalDef,Integer magicDef,Integer speed,Integer MaxHP,Integer MaxMP)
-	{
+	public CharacterStats(String name,Integer strengh,Integer magic,Integer physicalDef,Integer magicDef,Integer speed,Integer MaxHP,Integer MaxMP){
 		this.name = name;
 		this.strength = strengh;
 		this.magic = magic;
@@ -46,9 +37,7 @@ public class CharacterStats
 		this.reflecting = false;
 		this.guardingPercentage =0;
 		this.canAttack = true;
-		
 	}
-	
 	public String getName() { return this.name; }
 	public void setName(String name) { this.name = name;}
 	
@@ -99,7 +88,5 @@ public class CharacterStats
 	
 	public Boolean getCanAttack() {	return this.canAttack;	}
 	public void setCanAttack(Boolean canAttack) {	this.canAttack = canAttack;	}
-	
-	
 }
 

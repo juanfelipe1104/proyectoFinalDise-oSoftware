@@ -43,6 +43,7 @@ public abstract class GameCharacter implements Character{
 		this.magicAttackAction = new BaseMagicAction();
 		this.healAction = new BaseHealingAction();
 		this.guardAction = new BaseGuardAction();
+		this.currentAction = this.physicalAttackAction;
 	}
 	@Override
 	public CharacterStats getCharacterStats() { return this.characterStats; }
