@@ -5,7 +5,7 @@ import java.util.Random;
 public class MagicOffensiveBehaviorStrategy implements EnemyBehaviorStrategy
 {
 	//20% atacar, 60% ataque magico, 20% curacion, 20% proteccion
-	public void chooseBehavior(Character performer, Character target) throws ActionException
+	public void performAction(Character performer, Character target) throws ActionException
 	{
 		Random random = new Random();
 		Integer numRandom = random.nextInt(0, 99) + 1;

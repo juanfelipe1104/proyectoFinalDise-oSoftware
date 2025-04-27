@@ -43,7 +43,7 @@ public abstract class Enemy extends GameCharacter
 	{
 		try
 		{
-			this.enemyBehaviorStrategy.chooseBehavior(this, target);
+			this.enemyBehaviorStrategy.performAction(this, target);
 		}
 		
 		catch(ActionException e)
@@ -51,5 +51,10 @@ public abstract class Enemy extends GameCharacter
 			System.out.println(e.getMessage());
 		}
 		
+	}
+	
+	public void setEnemyBehaviorStrategy(EnemyBehaviorStrategy enemyBehaviorStrategy)
+	{
+		this.enemyBehaviorStrategy = enemyBehaviorStrategy;
 	}
 }
