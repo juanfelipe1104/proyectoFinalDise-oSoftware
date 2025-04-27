@@ -17,7 +17,7 @@ public abstract class AbstractActionComponentDecorator implements ActionComponen
 		this.level++;
 	}
 	
-	//Metodo para buscar un decorador concreto
+	//Metodo para buscar un decorador concreto por ejemplo
 	public ActionComponentDecorator searchComponentDecorator(ActionComponentDecorator decorator)
 	{
 		if(this.getClass().equals(decorator.getClass()))
@@ -25,20 +25,15 @@ public abstract class AbstractActionComponentDecorator implements ActionComponen
 			return this;
 		}
 		
-		else if(this.getActionComponent().getClass().equals(decorator.getClass()))
-		{
-			return (ActionComponentDecorator)(this.getActionComponent());
-		}
-		
 		//Si hemos llegado a la base, no lo hemos encontrado
-		else if(!(this.getActionComponent() instanceof ActionComponentDecorator))
+		else if(!(this instanceof ActionComponentDecorator))
 		{
 			return null;
 		}
 		
 		else 
 		{
-			return ((ActionComponentDecorator)(this.getActionComponent())).searchComponentDecorator(decorator);
+			return this.getActionComponent().searchComponentDecorator(decorator);
 		}
 	}
 
@@ -46,6 +41,7 @@ public abstract class AbstractActionComponentDecorator implements ActionComponen
 	
 	public void setLevel(Integer level) { this.level = level; }
 	public Integer getLevel() { return this.level; }
+
 	
 	
 }
