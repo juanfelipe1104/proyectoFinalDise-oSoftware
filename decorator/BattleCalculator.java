@@ -16,7 +16,7 @@ public class BattleCalculator {
 	//Hace una serie de cambios en el daño de base para que no siempre sea el mismo
 	private Integer changeBaseDamage(Integer baseDamage, CharacterStats targetStats, Integer boost){
 		Random random = new Random();
-		Integer damage = random.nextInt((int)(0.8*baseDamage), (int)(1.2*baseDamage));
+		Integer damage = baseDamage; //random.nextInt((int)(0.8*baseDamage), (int)(1.2*baseDamage));
 		damage += (int)(0.5*boost);	
 		if(targetStats.getGuarding()){
 			damage*=((100-targetStats.getGuardingPercentage())/100);

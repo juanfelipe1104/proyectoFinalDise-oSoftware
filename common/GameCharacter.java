@@ -93,4 +93,9 @@ public abstract class GameCharacter implements Character{
 	public void setCurrentAction(ActionComponent currentAction) {
 		this.currentAction = currentAction;
 	}
+	@Override
+	public String toString() {
+		return "GameCharacter [characterStats=" + this.characterStats + ", currentState=" + this.currentState + ", currentAction="
+				+ this.currentAction + "]";
+	}
 }

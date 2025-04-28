@@ -1,29 +1,67 @@
 package com.utad.ds.proyectoFinal.facade;
 
-import com.utad.ds.proyectoFinal.abstractFactory.EnemyAbstractFactory;
-import com.utad.ds.proyectoFinal.abstractFactory.arcaneAbomination.ArcaneAbomination;
-import com.utad.ds.proyectoFinal.abstractFactory.infernalExecutioner.InfernalExecutioner;
-import com.utad.ds.proyectoFinal.abstractFactory.ironcladBrute.IroncladBrute;
+import java.util.Scanner;
+
+import com.utad.ds.proyectoFinal.abstractFactory.EnemyFactoryContext;
+import com.utad.ds.proyectoFinal.common.Character;
+import com.utad.ds.proyectoFinal.common.Player;
+import com.utad.ds.proyectoFinal.state.DeadState;
 
 public class GameControllerFachade implements GameController{
-	private EnemyAbstractFactory enemyAbstractFactory;
-	public EnemyAbstractFactory getEnemyAbstractFactory() {
-		return this.enemyAbstractFactory;
+	private Character player;
+	private Character enemy;
+	public GameControllerFachade() {
+		this.createPlayer();
+		this.enemy = EnemyFactoryContext.getInstance().createRandomEnemy();
 	}
-	public void setEnemyAbstractFactory(EnemyAbstractFactory enemyAbstractFactory) {
-		this.enemyAbstractFactory = enemyAbstractFactory;
-	}
-	public ArcaneAbomination createArcaneAbomination(){
-		return this.enemyAbstractFactory.createArcaneAbomination();
-	}
-	public InfernalExecutioner createInfernalExecutioner(){
-		return this.enemyAbstractFactory.createInfernalExecutioner();
-	}
-	public IroncladBrute createIroncladBrute(){
-		return this.enemyAbstractFactory.createIroncladBrute();
+	private void createPlayer() {
+		Scanner scanner = new Scanner(System.in);
+		String nombre;
+		System.out.println("Ingrese el nombre de jugador");
+		nombre = scanner.next();
+		this.player = new Player(nombre);
 	}
 	@Override
-	public void play() {	
-		
+	public void play() {
+		Scanner scanner = new Scanner(System.in);
+		Integer opcion = 0;
+		Boolean salir = false;
+		while(!salir && !(player.getCurrentState() instanceof DeadState)) {
+			System.out.println("Te enfrentas a " + this.enemy);
+			System.out.println("1. Atacar enemigo");
+			System.out.println("2. Defender");
+			System.out.println("3. Curarse");
+			System.out.println("4. Salir");
+			opcion = scanner.nextInt();
+			switch(opcion) {
+			case 1:
+				opcion = 0;
+				System.out.println("Usar ataque fisico o magico");
+				System.out.println("1. Fisico");
+				System.out.println("2. Magico");
+				opcion = scanner.nextInt();
+				switch(opcion) {
+				case 1:
+					this.player.setCurrentAction(this.player.getPhysicalAttackAction());
+				break;
+				case 2:
+					this.player.setCurrentAction(this.player.getMagicAttackAction());
+				break;
+				}
+			break;
+			case 2:
+				this.player.setCurrentAction(this.player.getGuardAction());
+			break;
+			case 3:
+				this.player.setCurrentAction(this.player.getHealAction());
+			break;
+			case 4:
+				salir = true;
+			}
+			if(!salir) {
+				this.player.playTurn(this.enemy);
+				this.enemy.playTurn(this.player);
+			}
+		}
 	}
 }

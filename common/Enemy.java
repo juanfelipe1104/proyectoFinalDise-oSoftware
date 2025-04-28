@@ -36,4 +36,8 @@ public abstract class Enemy extends GameCharacter{
 	public void setEnemyBehaviorStrategy(EnemyBehaviorStrategy enemyBehaviorStrategy){
 		this.enemyBehaviorStrategy = enemyBehaviorStrategy;
 	}
+	@Override
+	public String toString() {
+		return super.toString() + "Enemy [enemyBehaviorStrategy=" + this.enemyBehaviorStrategy + "]";
+	}
 }

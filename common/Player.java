@@ -19,4 +19,8 @@ public class Player extends GameCharacter {
 	public void playTurn(Character target) {
 		this.performAction(target);
 	}
+	@Override
+	public String toString() {
+		return super.toString() + "Player []";
+	}
 }

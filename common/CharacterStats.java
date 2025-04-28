@@ -88,5 +88,13 @@ public class CharacterStats {
 	
 	public Boolean getCanAttack() {	return this.canAttack;	}
 	public void setCanAttack(Boolean canAttack) {	this.canAttack = canAttack;	}
+	@Override
+	public String toString() {
+		return "CharacterStats [name=" + this.name + ", strength=" + this.strength + ", magic=" + this.magic + ", physicalDef="
+				+ this.physicalDef + ", magicDef=" + this.magicDef + ", speed=" + this.speed + ", MaxHP=" + this.MaxHP + ", HP=" + this.HP
+				+ ", MaxMP=" + this.MaxMP + ", MP=" + this.MP + ", atkBoost=" + this.atkBoost + ", magicBoost=" + this.magicBoost
+				+ ", guardBoost=" + this.guardBoost + ", guarding=" + this.guarding + ", reflecting=" + this.reflecting
+				+ ", guardingPercentage=" + this.guardingPercentage + ", canAttack=" + this.canAttack + "]";
+	}
 }
 
