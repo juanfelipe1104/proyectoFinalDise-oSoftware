@@ -1,5 +1,6 @@
 package com.utad.ds.proyectoFinal.common;
 
+import com.utad.ds.proyectoFinal.state.DeadState;
 import com.utad.ds.proyectoFinal.strategy.BalancedBehaviorStrategy;
 import com.utad.ds.proyectoFinal.strategy.EnemyBehaviorStrategy;
 
@@ -19,7 +20,7 @@ public abstract class Enemy extends GameCharacter{
 		super.characterStats.setGuarding(false);
 		super.characterStats.setCanAttack(true);
 		super.performEffect();
-		if(super.characterStats.getCanAttack()){
+		if(super.characterStats.getCanAttack() && !(super.currentState instanceof DeadState)){
 			this.performAction(target);
 			this.useSkill();
 		}

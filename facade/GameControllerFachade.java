@@ -62,6 +62,10 @@ public class GameControllerFachade implements GameController{
 				this.player.playTurn(this.enemy);
 				this.enemy.playTurn(this.player);
 			}
+			if(this.enemy.getCurrentState() instanceof DeadState) {
+				this.enemy = EnemyFactoryContext.getInstance().createRandomEnemy();
+				System.out.println("Se ha generado un nuevo enemigo");
+			}
 		}
 	}
 }
