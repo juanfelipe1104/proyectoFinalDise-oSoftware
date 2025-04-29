@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 
 import com.utad.ds.proyectoFinal.decorator.*;
-import com.utad.ds.proyectoFinal.facade.GameControllerFachade;
+import com.utad.ds.proyectoFinal.facade.GameControllerFacade;
 
 //Despues de cada pelea se daran a elegir tres mejoras
 public class ItemDisplay {	
@@ -46,13 +46,13 @@ public class ItemDisplay {
 		List<String> opciones = new ArrayList<String>();
 		opciones.add(this.item.getName());
 		opciones.add(this.action.getName());
-		opcionElegida = GameControllerFachade.pantallaDeSeleccion(opciones);
+		opcionElegida = GameControllerFacade.pantallaDeSeleccion(opciones);
 		//Se elige el item
-		if(opcionElegida == 1){
+		if(opcionElegida.equals(1)){
 			this.player.getInventory().add(item);
 		}
 		//Se elige la mejora
-		else if(opcionElegida == 2){
+		else if(opcionElegida.equals(2)){
 			//El jugador no tenia esa mejora
 			if(this.action.getActionComponent().searchComponentDecorator(action) == null){
 				//Buscamos la accion base para saber de que tipo es y asi ver que accion cambiar
@@ -61,18 +61,22 @@ public class ItemDisplay {
 					case ActionType.ATK:
 					{
 						this.player.setPhysicalAttackAction(this.action);
+						break;
 					}
 					case ActionType.MAG:
 					{
 						this.player.setMagicAttackAction(this.action);
+						break;
 					}
 					case ActionType.HEAL:
 					{
 						this.player.setHealAction(this.action);
+						break;
 					}
 					case ActionType.GUARD:
 					{
 						this.player.setGuardAction(this.action);
+						break;
 					}
 				}
 			}

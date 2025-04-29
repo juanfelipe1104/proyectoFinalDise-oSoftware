@@ -29,15 +29,11 @@ public abstract class AbstractActionComponentDecorator implements ActionComponen
 		}
 	}
 	@Override
-	public BaseActionComponent getBaseAction()
-	{
-		if(this.getActionComponent() instanceof BaseActionComponent)
-		{
+	public BaseActionComponent getBaseAction(){
+		if(this.getActionComponent() instanceof BaseActionComponent){
 			return (BaseActionComponent)this.getActionComponent();
 		}
-		
-		else
-		{
+		else{
 			return this.getActionComponent().getBaseAction();
 		}
 	}
