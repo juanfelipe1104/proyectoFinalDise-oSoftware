@@ -5,13 +5,11 @@ import com.utad.ds.proyectoFinal.common.Character;
 
 //Para acciones de ataque o curacion, aumenta el ataque o vida recuperada dependiendo del nivel
 public class SkillBoostComponentDecorator extends AbstractActionComponentDecorator{
-	public SkillBoostComponentDecorator(ActionComponent actionComponent, Integer level)
-	{
-		this(actionComponent, level, AbstractActionComponentDecorator.DEFAULT_NAME);
+	public static final String DEFAULT_NAME = "Mejora de habilidad";
+	public SkillBoostComponentDecorator(ActionComponent actionComponent, Integer level){
+		this(actionComponent, level, SkillBoostComponentDecorator.DEFAULT_NAME);
 	}
-	
-	public SkillBoostComponentDecorator(ActionComponent actionComponent, Integer level, String name)
-	{
+	public SkillBoostComponentDecorator(ActionComponent actionComponent, Integer level, String name) {
 		super(actionComponent, level, name);
 	}
 	public String getDescription() {
@@ -23,10 +21,5 @@ public class SkillBoostComponentDecorator extends AbstractActionComponentDecorat
 	}
 	public void performAction(Character performer, Character target, Integer boost) throws ActionException{
 		throw new ActionException("Error: Incongruencia en las acciones, hay una con doble boost.");
-	}
-	
-	public String getName()
-	{
-		return "Mejora de habilidad";
 	}
 }

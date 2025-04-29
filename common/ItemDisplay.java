@@ -7,18 +7,14 @@ import com.utad.ds.proyectoFinal.decorator.*;
 import com.utad.ds.proyectoFinal.facade.GameControllerFachade;
 
 //Despues de cada pelea se daran a elegir tres mejoras
-public class ItemDisplay 
-{	
+public class ItemDisplay {	
 	private List<ActionComponentDecorator> actions;
 	private List<Item> items;
 	private Player player;
-	
 	//Acciones e items que vamos a ofrecer
 	private Item item;
 	private ActionComponentDecorator action;
-	
-	public ItemDisplay(Player player)
-	{
+	public ItemDisplay(Player player){
 		this.player = player;
 		
 		this.items = new ArrayList<Item>();
@@ -38,70 +34,52 @@ public class ItemDisplay
 	
 		this.chooseItems();
 	}
-	
 	//Elige el item y la mejora que se mostraran para elegir
-	public void chooseItems()
-	{
+	public void chooseItems(){
 		Collections.shuffle(actions);
 		Collections.shuffle(items);
-		
 		this.action = this.actions.getFirst();
 		this.item = this.items.getFirst();
 	}
-	
-	public void selectUpgrade()
-	{
+	public void selectUpgrade(){
 		Integer opcionElegida = -1;
 		List<String> opciones = new ArrayList<String>();
 		opciones.add(this.item.getName());
 		opciones.add(this.action.getName());
 		opcionElegida = GameControllerFachade.pantallaDeSeleccion(opciones);
-		
 		//Se elige el item
-		if(opcionElegida == 1)
-		{
+		if(opcionElegida == 1){
 			this.player.getInventory().add(item);
 		}
-		
 		//Se elige la mejora
-		else if(opcionElegida == 2)
-		{
+		else if(opcionElegida == 2){
 			//El jugador no tenia esa mejora
-			if(this.action.getActionComponent().searchComponentDecorator(action) == null)
-			{
+			if(this.action.getActionComponent().searchComponentDecorator(action) == null){
 				//Buscamos la accion base para saber de que tipo es y asi ver que accion cambiar
 				BaseActionComponent baseAction = this.action.getActionComponent().getBaseAction();
-				switch(baseAction.getActionType())
-				{
+				switch(baseAction.getActionType()){
 					case ActionType.ATK:
 					{
 						this.player.setPhysicalAttackAction(this.action);
 					}
-					
 					case ActionType.MAG:
 					{
 						this.player.setMagicAttackAction(this.action);
 					}
-					
 					case ActionType.HEAL:
 					{
 						this.player.setHealAction(this.action);
 					}
-					
 					case ActionType.GUARD:
 					{
 						this.player.setGuardAction(this.action);
 					}
 				}
 			}
-			
 			//Si ya tenia esta mejora, la subimos de nivel
-			else
-			{
+			else{
 				this.action.getActionComponent().searchComponentDecorator(action).levelUp();
 			}
 		}
 	}
-	
-	
 }

@@ -8,13 +8,11 @@ import com.utad.ds.proyectoFinal.common.Character;
 public class InflictSlowdownComponentDecorator extends AbstractActionComponentDecorator{
 	public static final Integer BASE_INFLICT_CHANCE = 40;
 	public static final Integer MAX_INFLICT_CHANCE = 100;
-	public InflictSlowdownComponentDecorator(ActionComponent actionComponent, Integer level)
-	{
-		this(actionComponent, level, AbstractActionComponentDecorator.DEFAULT_NAME);
+	public static final String DEFAULT_NAME = "Mejora de infligir ralentización";
+	public InflictSlowdownComponentDecorator(ActionComponent actionComponent, Integer level){
+		this(actionComponent, level, InflictSlowdownComponentDecorator.DEFAULT_NAME);
 	}
-	
-	public InflictSlowdownComponentDecorator(ActionComponent actionComponent, Integer level, String name)
-	{
+	public InflictSlowdownComponentDecorator(ActionComponent actionComponent, Integer level, String name) {
 		super(actionComponent, level, name);
 	}
 	public String getDescription() {
@@ -41,10 +39,5 @@ public class InflictSlowdownComponentDecorator extends AbstractActionComponentDe
 	public void performAction(Character performer, Character target, Integer boost) throws ActionException{
 		this.decideInflict(target);
 		super.getActionComponent().performAction(performer, target, boost);
-	}
-	
-	public String getName()
-	{
-		return "Mejora de infligir ralentización";
 	}
 }

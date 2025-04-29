@@ -30,9 +30,8 @@ public class BaseHealingAction implements BaseActionComponent{
 		//Por debajo de la base no hay nada
 		return null;
 	}
-	
-	public BaseActionComponent getBaseAction()
-	{
+	@Override
+	public BaseActionComponent getBaseAction() {
 		return this;
 	}
 }

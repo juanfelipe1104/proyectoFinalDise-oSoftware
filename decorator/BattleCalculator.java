@@ -15,8 +15,7 @@ public class BattleCalculator {
 		return BattleCalculator.battleCalculator;
 	}
 	//Hace una serie de cambios en el daño de base para que no siempre sea el mismo
-	private Integer changeBaseDamage(Integer baseDamage, CharacterStats targetStats, Integer boost)
-	{
+	private Integer changeBaseDamage(Integer baseDamage, CharacterStats targetStats, Integer boost){
 		Random random = new Random();
 		Integer damage = baseDamage;
 		if(damage > 0)	damage = random.nextInt((int)(0.8*baseDamage), (int)(1.2*baseDamage));
@@ -24,53 +23,39 @@ public class BattleCalculator {
 		if(targetStats.getGuarding()){
 			damage*=((100-targetStats.getGuardingPercentage())/100);
 		}	
-		
 		//Siempre se hace al menos 1 de daño
-		if(damage <= 0)
-		{
+		if(damage <= 0){
 			damage = 1;
 		}
 		return damage;
 	}
-	public Integer calculatePhysicalDamage(Character attacker, Character target, Integer boost)
-	{
+	//Decide si un golpe fisico es critico o no
+	public Boolean decideCrit(){
+		Boolean crit = false;
+		Random random = new Random();
+		Integer numRandom = random.nextInt(0, 99)+1;
+		if(numRandom <= BattleCalculator.CRIT_RATE){
+			crit = true;
+		}
+		return crit;
+	}
+	public Integer calculatePhysicalDamage(Character attacker, Character target, Integer boost){
 		CharacterStats attackerStats = attacker.getCharacterStats();
 		CharacterStats targetStats = target.getCharacterStats();
 		Integer baseDamage = attackerStats.getStrength() - (int)(targetStats.getPhysicalDef()*0.75);
 		Integer damage = this.changeBaseDamage(baseDamage, targetStats, boost);
-		
 		//Un golpe critico deja al enemigo herido y hace mas daño. Solo los golpes fisicos pueden ser criticos
-		if(this.decideCrit())
-		{
+		if(this.decideCrit()){
 			damage = (int)(damage*1.5);
 			target.removeSideEffect();
 			target.applyBleeding();
 		}
-		
-		if(targetStats.getReflecting())
-		{
+		if(targetStats.getReflecting()){
 			damage = (int)(damage*-0.7);  //Refleja el 70% del daño si lo hace, y lo ponemos negativo para indicar que el daño se hace en sentido contrario
 		}
-		return damage;	
-		
+		return damage;
 	}
-	
-	//Decide si un golpe fisico es critico o no
-	public Boolean decideCrit()
-	{
-		Boolean crit = false;
-		Random random = new Random();
-		Integer numRandom = random.nextInt(0, 99)+1;
-		if(numRandom <= BattleCalculator.CRIT_RATE)
-		{
-			crit = true;
-		}
-		
-		return crit;
-	}
-	
-	public Integer calculateMagicDamage(Character attacker, Character target, Integer boost)
-	{
+	public Integer calculateMagicDamage(Character attacker, Character target, Integer boost){
 		CharacterStats attackerStats = attacker.getCharacterStats();
 		CharacterStats targetStats = target.getCharacterStats();
 		Integer baseDamage = attackerStats.getMagic() - (int)(targetStats.getMagicDef()*0.75);
@@ -81,19 +66,17 @@ public class BattleCalculator {
 		return damage;	
 	}
 	//En funcion del nivel del boost calcula el porcentaje de daño absorbido
-	public Integer calculateGuardingPercentage(Integer boost)
-	{
-		Integer guardingPercentage = BattleCalculator.BASE_GUARDING_PERCENTAGE + boost;
-		if(guardingPercentage > BattleCalculator.MAX_GUARDING_PERCENTAGE){
-			guardingPercentage = BattleCalculator.MAX_GUARDING_PERCENTAGE;
+	public Integer calculateGuardingPercentage(Integer boost){
+		Integer result = BattleCalculator.BASE_GUARDING_PERCENTAGE + boost;
+		if(result > BattleCalculator.MAX_GUARDING_PERCENTAGE){
+			result = BattleCalculator.MAX_GUARDING_PERCENTAGE;
 		}
-		return guardingPercentage;
+		return result;
 	}
-	public Integer calculateHealing(Character performer, Integer boost)
-	{
-		Integer healing = 0;
+	public Integer calculateHealing(Character performer, Integer boost){
+		Integer result = 0;
 		CharacterStats performerStats = performer.getCharacterStats();
-		healing = (int)((0.4 + boost/10)*performerStats.getMaxHP());
-		return healing;
+		result = (int)((0.4 + boost/10)*performerStats.getMaxHP());
+		return result;
 	}
 }
