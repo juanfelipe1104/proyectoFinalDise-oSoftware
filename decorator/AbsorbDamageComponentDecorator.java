@@ -5,9 +5,11 @@ import com.utad.ds.proyectoFinal.common.Character;
 import com.utad.ds.proyectoFinal.common.CharacterStats;
 
 //Para ataques fisicos y magicos, el usuario absorbe una cantidad fija de daño dependiendo del nivel
-public class AbsorbDamageComponentDecorator extends AbstractActionComponentDecorator{
+public class AbsorbDamageComponentDecorator extends AbstractActionComponentDecorator
+{
 	public static final Integer BASE_DAMAGE_ABSORBED = 20;
-	public AbsorbDamageComponentDecorator(ActionComponent actionComponent, Integer level){
+	public AbsorbDamageComponentDecorator(ActionComponent actionComponent, Integer level)
+	{
 		super(actionComponent, level);
 	}
 	public String getDescription() {
@@ -30,5 +32,10 @@ public class AbsorbDamageComponentDecorator extends AbstractActionComponentDecor
 	public void performAction(Character performer, Character target, Integer boost) throws ActionException{
 		this.absorbDamage(performer);
 		super.getActionComponent().performAction(performer, target, boost);
+	}
+	
+	public String getName()
+	{
+		return "Mejora de absorber daño";
 	}
 }

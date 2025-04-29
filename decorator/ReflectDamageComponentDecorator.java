@@ -38,5 +38,10 @@ public class ReflectDamageComponentDecorator extends AbstractActionComponentDeco
 		this.decideReflect(performer);
 		super.getActionComponent().performAction(performer, target, boost);
 	}
+	
+	public String getName()
+	{
+		return "Mejora de reflejar daño";
+	}
 
 }

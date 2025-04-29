@@ -35,4 +35,9 @@ public class InflictParalysisComponentDecorator extends AbstractActionComponentD
 		this.decideInflict(target);
 		super.getActionComponent().performAction(performer, target, boost);
 	}
+	
+	public String getName()
+	{
+		return "Mejora de infligir parálisis";
+	}
 }

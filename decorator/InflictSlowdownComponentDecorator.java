@@ -36,4 +36,9 @@ public class InflictSlowdownComponentDecorator extends AbstractActionComponentDe
 		this.decideInflict(target);
 		super.getActionComponent().performAction(performer, target, boost);
 	}
+	
+	public String getName()
+	{
+		return "Mejora de infligir ralentización";
+	}
 }
