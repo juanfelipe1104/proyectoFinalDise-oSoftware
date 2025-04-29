@@ -65,6 +65,7 @@ public class GameControllerFacade implements GameController{
 		this.victory = false;
 		this.salir = false;
 		this.roundNumber = 0;
+		this.worldNumber = 1;
 	}
 	private void createPlayer() {
 		Scanner scanner = new Scanner(System.in);
@@ -81,6 +82,8 @@ public class GameControllerFacade implements GameController{
 			this.choosePlayerAction(GameControllerFacade.pantallaDeSeleccion(GameControllerFacade.GAME_OPTIONS));
 			this.playTurn();
 			if(this.isCharacterDead(this.enemy)) {
+				this.itemDisplay = new ItemDisplay((Player)this.player);
+				this.itemDisplay.selectUpgrade();
 				this.createEnemy();
 			}
 		}
@@ -116,15 +119,14 @@ public class GameControllerFacade implements GameController{
 			}
 			this.changeWorld();
 		}
-		else {
-			if(this.roundNumber.equals(4)){
-				this.enemy = (Enemy) EnemyFactoryContext.getInstance().createBoss();
-				System.out.println("Ha aparecido el jefe " + this.enemy.getCharacterStats().getName());
-			}
-			else{
-				this.enemy = EnemyFactoryContext.getInstance().createRandomEnemy();
-				System.out.println("Se ha generado un nuevo enemigo");		
-			}
+		if(this.roundNumber.equals(4)){
+			this.enemy = (Enemy) EnemyFactoryContext.getInstance().createBoss();
+			System.out.println("Ha aparecido el jefe " + this.enemy.getCharacterStats().getName());
+			this.roundNumber = 0;
+		}
+		else{
+			this.enemy = EnemyFactoryContext.getInstance().createRandomEnemy();
+			System.out.println("Se ha generado un nuevo enemigo");		
 		}
 	}
 	private void changeWorld() {
@@ -170,9 +172,11 @@ public class GameControllerFacade implements GameController{
 			this.player.setCurrentAction(this.player.getHealAction());
 		break;
 		case 4:
-			this.itemDisplay=new ItemDisplay((Player)this.player);
-			this.itemDisplay.selectUpgrade();
-		break;
+			Integer index = GameControllerFacade.pantallaDeSeleccion(((Player)this.player).getInventory());
+			if(!(index.equals(0))) {
+				((Player)this.player).getInventory().get(index-1).useItem(this.player);
+			}
+			this.choosePlayerAction(GameControllerFacade.pantallaDeSeleccion(GameControllerFacade.GAME_OPTIONS));
 		}
 	}
 	private void chooseAttackType(Integer option) {

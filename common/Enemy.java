@@ -1,5 +1,6 @@
 package com.utad.ds.proyectoFinal.common;
 
+import com.utad.ds.proyectoFinal.abstractFactory.boss.Boss;
 import com.utad.ds.proyectoFinal.state.DeadState;
 import com.utad.ds.proyectoFinal.strategy.BalancedBehaviorStrategy;
 import com.utad.ds.proyectoFinal.strategy.EnemyBehaviorStrategy;
@@ -22,6 +23,9 @@ public abstract class Enemy extends GameCharacter{
 		super.performEffect();
 		if(super.characterStats.getCanAttack() && !(super.currentState instanceof DeadState)){
 			this.performAction(target);
+			this.useSkill(target);
+		}
+		if(this instanceof Boss) {
 			this.useSkill(target);
 		}
 	}

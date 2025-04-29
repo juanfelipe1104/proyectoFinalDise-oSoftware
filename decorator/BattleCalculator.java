@@ -75,7 +75,7 @@ public class BattleCalculator {
 	}
 	//En funcion del nivel del boost calcula el porcentaje de daño absorbido
 	public Integer calculateGuardingPercentage(Integer boost){
-		Integer result = BattleCalculator.BASE_GUARDING_PERCENTAGE + boost;
+		Integer result = BattleCalculator.BASE_GUARDING_PERCENTAGE + boost*10;
 		if(result > BattleCalculator.MAX_GUARDING_PERCENTAGE){
 			result = BattleCalculator.MAX_GUARDING_PERCENTAGE;
 		}

@@ -7,7 +7,7 @@ import com.utad.ds.proyectoFinal.common.Enemy;
 
 public class MeadowInfernalExecutioner extends Enemy implements InfernalExecutioner{
 	public MeadowInfernalExecutioner(){
-		this(new CharacterStats("Infernal Executioner",30,0,20,10,10,50,0));
+		this(new CharacterStats("Bicho palo",30,0,20,10,10,50,0));
 	}
 	public MeadowInfernalExecutioner(CharacterStats characterStats){
 		super(characterStats);

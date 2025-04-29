@@ -7,7 +7,7 @@ import com.utad.ds.proyectoFinal.common.Enemy;
 
 public class MeadowIroncladBrute extends Enemy implements IroncladBrute{
 	public MeadowIroncladBrute(){
-		this(new CharacterStats("Infernal Executioner",20,0,50,50,5,200,0));
+		this(new CharacterStats("Golem de Piedra",20,0,50,50,5,200,0));
 	}
 	public MeadowIroncladBrute(CharacterStats characterStats){
 		super(characterStats);

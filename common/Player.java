@@ -8,7 +8,7 @@ import com.utad.ds.proyectoFinal.state.DeadState;
 public class Player extends GameCharacter {
 	private List<Item> inventory;
 	public Player(String name) {
-		this(new CharacterStats(name, 50, 50, 50, 50, 50, 100, 100));
+		this(new CharacterStats(name, 10000, 10000, 50, 50, 50, 100, 100));
 	}
 	public Player(CharacterStats characterStats) {
 		super(characterStats);
