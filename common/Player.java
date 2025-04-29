@@ -17,7 +17,7 @@ public class Player extends GameCharacter {
 	@Override
 	public void performAction(Character target) {
 		try {
-			super.currentAction.performAction(this, target);
+			super.currentAction.performActionFirst(this, target);
 		}catch(ActionException actionException) {
 			System.out.println(actionException.getMessage());
 		}

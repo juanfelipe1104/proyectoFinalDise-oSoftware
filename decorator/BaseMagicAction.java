@@ -54,4 +54,9 @@ public class BaseMagicAction implements BaseActionComponent{
 	public BaseActionComponent getBaseAction() {
 		return this;
 	}
+	
+	public void performActionFirst(Character performer, Character target) throws ActionException
+	{
+		this.performAction(performer, target);
+	}
 }

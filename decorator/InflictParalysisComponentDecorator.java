@@ -31,6 +31,7 @@ public class InflictParalysisComponentDecorator extends AbstractActionComponentD
 			target.applyParalysis();
 		}
 	}
+	
 	public void performAction(Character performer, Character target) throws ActionException{
 		this.decideInflict(target);
 		super.getActionComponent().performAction(performer, target);

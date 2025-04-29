@@ -1,5 +1,8 @@
 package com.utad.ds.proyectoFinal.decorator;
 
+import com.utad.ds.proyectoFinal.common.ActionException;
+import com.utad.ds.proyectoFinal.common.Character;
+
 public abstract class AbstractActionComponentDecorator implements ActionComponentDecorator{
 	//Componente al que decora
 	protected ActionComponent actionComponent;
@@ -37,6 +40,13 @@ public abstract class AbstractActionComponentDecorator implements ActionComponen
 			return this.getActionComponent().getBaseAction();
 		}
 	}
+	
+	public void performActionFirst(Character performer, Character target) throws ActionException
+	{
+		System.out.println(performer.getCharacterStats().getName() + " realiza " + this.getDescription());
+		this.performAction(performer, target);
+	}
+	
 	public ActionComponent getActionComponent() { return this.actionComponent; }
 	public void setLevel(Integer level) { this.level = level; }
 	public Integer getLevel() { return this.level; }

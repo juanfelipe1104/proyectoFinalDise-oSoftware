@@ -10,4 +10,5 @@ public interface ActionComponent {
 	public abstract void performAction(Character performer, Character target, Integer boost) throws ActionException;
 	public abstract ActionComponentDecorator searchComponentDecorator(ActionComponentDecorator decorator);
 	public abstract BaseActionComponent getBaseAction();
+	public abstract void performActionFirst(Character performer, Character target) throws ActionException;
 }

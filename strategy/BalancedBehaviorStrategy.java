@@ -13,37 +13,31 @@ public class BalancedBehaviorStrategy implements EnemyBehaviorStrategy{
 		Integer numRandom = random.nextInt(0, 99) + 1;	
 		//Ataque fisico
 		if(numRandom <=25){
-			performer.getPhysicalAttackAction().performAction(performer, target);
-			System.out.println(performer.getCharacterStats().getName() + " realiza " + performer.getPhysicalAttackAction().getDescription());
+			performer.getPhysicalAttackAction().performActionFirst(performer, target);
 		}	
 		//Ataque magico
 		else if(numRandom > 25 && numRandom <=50){
 			if(performer.getCharacterStats().getMP() >= Enemy.MP_COST){
-				performer.getMagicAttackAction().performAction(performer, target);
-				System.out.println(performer.getCharacterStats().getName() + " realiza " + performer.getMagicAttackAction().getDescription());
+				performer.getMagicAttackAction().performActionFirst(performer, target);
 			}	
 			//Si no tiene MP, en su lugar hace un ataque fisico
 			else{
-				performer.getPhysicalAttackAction().performAction(performer, target);
-				System.out.println(performer.getCharacterStats().getName() + " realiza " + performer.getPhysicalAttackAction().getDescription());
+				performer.getPhysicalAttackAction().performActionFirst(performer, target);
 			}
 		}	
 		//Curarse
 		else if(numRandom > 50 && numRandom <=75){
 			if(performer.getCharacterStats().getMP() >= Enemy.MP_COST){
-				performer.getHealAction().performAction(performer, target);
-				System.out.println(performer.getCharacterStats().getName() + " realiza " + performer.getHealAction().getDescription());
+				performer.getHealAction().performActionFirst(performer, target);
 			}
 			//Si no tiene MP, en su lugar se protege
 			else{
-				performer.getGuardAction().performAction(performer, target);
-				System.out.println(performer.getCharacterStats().getName() + " realiza " + performer.getGuardAction().getDescription());
+				performer.getGuardAction().performActionFirst(performer, target);
 			}
 		}	
 		//Protegerse
 		else{
-			performer.getGuardAction().performAction(performer, target);
-			System.out.println(performer.getCharacterStats().getName() + " realiza " + performer.getGuardAction().getDescription());
+			performer.getGuardAction().performActionFirst(performer, target);
 		}
 	}
 }
