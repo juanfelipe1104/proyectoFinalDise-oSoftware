@@ -18,9 +18,8 @@ public class SkillBoostComponentDecorator extends AbstractActionComponentDecorat
 	public void performAction(Character performer, Character target, Integer boost) throws ActionException{
 		throw new ActionException("Error: Incongruencia en las acciones, hay una con doble boost.");
 	}
-	
-	public String getName()
-	{
+	@Override
+	public String getName() {
 		return "Mejora de habilidad";
 	}
 }

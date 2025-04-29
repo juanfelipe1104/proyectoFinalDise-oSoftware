@@ -1,7 +1,9 @@
 package com.utad.ds.proyectoFinal.abstractFactory.ironcladBrute;
 
 import com.utad.ds.proyectoFinal.abstractFactory.LandOfDragonsAbstractFactory;
-import com.utad.ds.proyectoFinal.common.*;
+import com.utad.ds.proyectoFinal.common.Character;
+import com.utad.ds.proyectoFinal.common.CharacterStats;
+import com.utad.ds.proyectoFinal.common.Enemy;
 
 public class LandOfDragonsIroncladBrute extends Enemy implements IroncladBrute{
 	public LandOfDragonsIroncladBrute(){
@@ -18,11 +20,11 @@ public class LandOfDragonsIroncladBrute extends Enemy implements IroncladBrute{
 		}
 	}
 	@Override
-	public void useSkill() {	
-		this.increasePhysicalDef();;
+	public void useSkill(Character target) {	
+		this.increasePhysicalDefense();;
 	}
 	@Override
-	public void increasePhysicalDef() {
+	public void increasePhysicalDefense() {
 		super.characterStats.setPhysicalDef((int)(super.characterStats.getPhysicalDef()*LandOfDragonsAbstractFactory.INCREASE_STATS));
 	}
 }

@@ -1,14 +1,18 @@
 package com.utad.ds.proyectoFinal.abstractFactory.arcaneAbomination;
 
 import com.utad.ds.proyectoFinal.abstractFactory.MostolesAbstractFactory;
-import com.utad.ds.proyectoFinal.common.*;
+import com.utad.ds.proyectoFinal.common.Enemy;
+import com.utad.ds.proyectoFinal.common.Character;
+import com.utad.ds.proyectoFinal.common.CharacterStats;
 
 public class MostolesArcaneAbomination extends Enemy implements ArcaneAbomination{
+	private Boolean followUpAttack;
 	public MostolesArcaneAbomination() {
 		this(new CharacterStats("Arcane Abomination",0,80,60,80,40,160,400));
 	}
 	public MostolesArcaneAbomination(CharacterStats characterStats) {
 		super(characterStats);
+		this.followUpAttack = false;
 		
 	}	
 	@Override
@@ -18,11 +22,15 @@ public class MostolesArcaneAbomination extends Enemy implements ArcaneAbominatio
 		}
 	}
 	@Override
-	public void followUpAttack() {	
-		//llamar a realizar otra accion
+	public void followUpAttack(Character opponent) {	
+		if(!this.followUpAttack){
+			this.followUpAttack = true;
+			System.out.println(super.characterStats.getName() + " ataca de nuevo");
+			this.performAction(opponent);
+		}
 	}
 	@Override
-	public void useSkill() {	
-		this.followUpAttack();
+	public void useSkill(Character opponent) {	
+		this.followUpAttack(opponent);
 	}
 }

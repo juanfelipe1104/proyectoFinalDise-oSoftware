@@ -1,6 +1,8 @@
 package com.utad.ds.proyectoFinal.abstractFactory.boss;
 
-import com.utad.ds.proyectoFinal.common.*;
+import com.utad.ds.proyectoFinal.common.Character;
+import com.utad.ds.proyectoFinal.common.CharacterStats;
+import com.utad.ds.proyectoFinal.common.Enemy;
 
 public class MagicForestBoss extends Enemy implements Boss{
 	public static final Double INCREASE_STATS = 3.0;
@@ -19,11 +21,15 @@ public class MagicForestBoss extends Enemy implements Boss{
 		}
 	}
 	@Override
-	public void useSkill() {	
+	public void useSkill(Character target) {	
 		this.revive();
 	}
 	@Override
 	public void revive() {	
-		this.revive = true;
+		if(this.revive.equals(false)){
+			this.revive = true;
+			System.out.println(super.characterStats.getName() + " ha revivido");
+			super.characterStats.setHP(super.characterStats.getMaxHP());
+		}
 	}
 }

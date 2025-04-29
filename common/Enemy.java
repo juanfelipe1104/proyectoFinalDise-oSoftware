@@ -22,7 +22,7 @@ public abstract class Enemy extends GameCharacter{
 		super.performEffect();
 		if(super.characterStats.getCanAttack() && !(super.currentState instanceof DeadState)){
 			this.performAction(target);
-			this.useSkill();
+			this.useSkill(target);
 		}
 	}
 	public void performAction(Character target) {
@@ -32,7 +32,7 @@ public abstract class Enemy extends GameCharacter{
 			System.out.println(actionException.getMessage());
 		}
 	}
-	public abstract void useSkill();
+	public abstract void useSkill(Character character);
 	public abstract void increaseStats();
 	public void setEnemyBehaviorStrategy(EnemyBehaviorStrategy enemyBehaviorStrategy){
 		this.enemyBehaviorStrategy = enemyBehaviorStrategy;

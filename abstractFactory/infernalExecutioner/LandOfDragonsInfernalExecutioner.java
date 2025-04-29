@@ -1,7 +1,9 @@
 package com.utad.ds.proyectoFinal.abstractFactory.infernalExecutioner;
 
 import com.utad.ds.proyectoFinal.abstractFactory.LandOfDragonsAbstractFactory;
-import com.utad.ds.proyectoFinal.common.*;
+import com.utad.ds.proyectoFinal.common.Character;
+import com.utad.ds.proyectoFinal.common.CharacterStats;
+import com.utad.ds.proyectoFinal.common.Enemy;
 
 public class LandOfDragonsInfernalExecutioner extends Enemy implements InfernalExecutioner{
 	public LandOfDragonsInfernalExecutioner(){
@@ -10,10 +12,7 @@ public class LandOfDragonsInfernalExecutioner extends Enemy implements InfernalE
 	public LandOfDragonsInfernalExecutioner(CharacterStats characterStats){
 		super(characterStats);
 	}
-	@Override
-	public void ignoreDefense() {
-		//llamar a algo	
-	}
+	
 	@Override
 	public void increaseStats() {
 		if(super.characterStats.getHP()<=super.characterStats.getMaxHP()){
@@ -21,7 +20,11 @@ public class LandOfDragonsInfernalExecutioner extends Enemy implements InfernalE
 		}
 	}
 	@Override
-	public void useSkill() {	
-		this.ignoreDefense();
+	public void useSkill(Character target) {	
+		this.increaseMagicDefense();
+	}
+	@Override
+	public void increaseMagicDefense() {
+		super.characterStats.setMagicDef(super.characterStats.getMagicDef()+10);
 	}
 }
