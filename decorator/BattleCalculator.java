@@ -21,7 +21,7 @@ public class BattleCalculator {
 		if(damage > 0)	damage = random.nextInt((int)(0.8*baseDamage), (int)(1.2*baseDamage));
 		damage += (int)(0.5*boost*damage);	
 		if(targetStats.getGuarding()){
-			damage*=((100-targetStats.getGuardingPercentage())/100);
+			damage = (int)(damage*( (100-targetStats.getGuardingPercentage())/100) );
 		}	
 		//Siempre se hace al menos 1 de daño
 		if(damage <= 0){
