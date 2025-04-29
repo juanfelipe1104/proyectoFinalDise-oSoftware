@@ -1,6 +1,5 @@
 package com.utad.ds.proyectoFinal.common;
 
-import com.utad.ds.proyectoFinal.state.DeadState;
 import com.utad.ds.proyectoFinal.strategy.BalancedBehaviorStrategy;
 import com.utad.ds.proyectoFinal.strategy.EnemyBehaviorStrategy;
 
@@ -20,9 +19,9 @@ public abstract class Enemy extends GameCharacter{
 		super.characterStats.setGuarding(false);
 		super.characterStats.setCanAttack(true);
 		super.performEffect();
-		if(super.characterStats.getCanAttack() && !(super.currentState instanceof DeadState)){
+		if(super.characterStats.getCanAttack()){
 			this.performAction(target);
-			this.useSkill(target);
+			this.useSkill();
 		}
 	}
 	public void performAction(Character target) {
@@ -32,13 +31,9 @@ public abstract class Enemy extends GameCharacter{
 			System.out.println(actionException.getMessage());
 		}
 	}
-	public abstract void useSkill(Character character);
+	public abstract void useSkill();
 	public abstract void increaseStats();
 	public void setEnemyBehaviorStrategy(EnemyBehaviorStrategy enemyBehaviorStrategy){
 		this.enemyBehaviorStrategy = enemyBehaviorStrategy;
-	}
-	@Override
-	public String toString() {
-		return super.toString() + "Enemy [enemyBehaviorStrategy=" + this.enemyBehaviorStrategy + "]";
 	}
 }

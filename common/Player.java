@@ -1,14 +1,22 @@
 package com.utad.ds.proyectoFinal.common;
+import java.util.List;
+import java.util.ArrayList;
 
-public class Player extends GameCharacter {
-	public Player(String name) {
+public class Player extends GameCharacter 
+{
+	private List<Item> inventory;
+	public Player(String name) 
+	{
 		this(new CharacterStats(name, 50, 50, 50, 50, 50, 100, 100));
 	}
-	public Player(CharacterStats characterStats) {
+	public Player(CharacterStats characterStats) 
+	{
 		super(characterStats);
+		this.inventory = new ArrayList<Item>();
 	}
 	@Override
-	public void performAction(Character target) {
+	public void performAction(Character target) 
+	{
 		try {
 			super.currentAction.performAction(this, target);
 		}catch(ActionException actionException) {
@@ -18,9 +26,5 @@ public class Player extends GameCharacter {
 	@Override
 	public void playTurn(Character target) {
 		this.performAction(target);
-	}
-	@Override
-	public String toString() {
-		return super.toString() + "Player []";
 	}
 }

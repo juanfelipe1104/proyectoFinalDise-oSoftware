@@ -8,8 +8,14 @@ import com.utad.ds.proyectoFinal.common.Character;
 public class InflictSlowdownComponentDecorator extends AbstractActionComponentDecorator{
 	public static final Integer BASE_INFLICT_CHANCE = 40;
 	public static final Integer MAX_INFLICT_CHANCE = 100;
-	public InflictSlowdownComponentDecorator(ActionComponent actionComponent, Integer level){
-		super(actionComponent, level);
+	public InflictSlowdownComponentDecorator(ActionComponent actionComponent, Integer level)
+	{
+		this(actionComponent, level, AbstractActionComponentDecorator.DEFAULT_NAME);
+	}
+	
+	public InflictSlowdownComponentDecorator(ActionComponent actionComponent, Integer level, String name)
+	{
+		super(actionComponent, level, name);
 	}
 	public String getDescription() {
 		return super.getActionComponent().getDescription() + " con capacidad de ralentizar de nivel " + this.level;
@@ -36,8 +42,9 @@ public class InflictSlowdownComponentDecorator extends AbstractActionComponentDe
 		this.decideInflict(target);
 		super.getActionComponent().performAction(performer, target, boost);
 	}
-	@Override
-	public String getName() {
+	
+	public String getName()
+	{
 		return "Mejora de infligir ralentización";
 	}
 }

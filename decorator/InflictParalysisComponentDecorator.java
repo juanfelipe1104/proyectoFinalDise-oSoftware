@@ -7,8 +7,14 @@ import com.utad.ds.proyectoFinal.common.Character;
 public class InflictParalysisComponentDecorator extends AbstractActionComponentDecorator{
 	public static final Integer BASE_INFLICT_CHANCE = 40;
 	public static final Integer MAX_INFLICT_CHANCE = 100;
-	public InflictParalysisComponentDecorator(ActionComponent actionComponent, Integer level){
-		super(actionComponent, level);
+	public InflictParalysisComponentDecorator(ActionComponent actionComponent, Integer level)
+	{
+		this(actionComponent, level, AbstractActionComponentDecorator.DEFAULT_NAME);
+	}
+	
+	public InflictParalysisComponentDecorator(ActionComponent actionComponent, Integer level, String name)
+	{
+		super(actionComponent, level, name);
 	}
 	public String getDescription() {
 		return super.getActionComponent().getDescription() + " con capacidad de paralizar de nivel " + this.level;
@@ -35,8 +41,9 @@ public class InflictParalysisComponentDecorator extends AbstractActionComponentD
 		this.decideInflict(target);
 		super.getActionComponent().performAction(performer, target, boost);
 	}
-	@Override
-	public String getName() {
+	
+	public String getName()
+	{
 		return "Mejora de infligir parálisis";
 	}
 }

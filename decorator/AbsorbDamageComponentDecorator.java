@@ -5,15 +5,26 @@ import com.utad.ds.proyectoFinal.common.Character;
 import com.utad.ds.proyectoFinal.common.CharacterStats;
 
 //Para ataques fisicos y magicos, el usuario absorbe una cantidad fija de daño dependiendo del nivel
-public class AbsorbDamageComponentDecorator extends AbstractActionComponentDecorator{
+public class AbsorbDamageComponentDecorator extends AbstractActionComponentDecorator
+{
 	public static final Integer BASE_DAMAGE_ABSORBED = 20;
-	public AbsorbDamageComponentDecorator(ActionComponent actionComponent, Integer level){
-		super(actionComponent, level);
+	public AbsorbDamageComponentDecorator(ActionComponent actionComponent, Integer level)
+	{
+		this(actionComponent, level, AbstractActionComponentDecorator.DEFAULT_NAME);
 	}
-	public String getDescription() {
+	
+	public AbsorbDamageComponentDecorator(ActionComponent actionComponent, Integer level, String name)
+	{
+		super(actionComponent, level, name);
+	}
+	
+	
+	public String getDescription() 
+	{
 		return super.getActionComponent().getDescription() + " con mejora de absorber daño de nivel " + this.level;
 	}
-	public void absorbDamage(Character performer){
+	public void absorbDamage(Character performer)
+	{
 		CharacterStats performerStats = performer.getCharacterStats();
 		//Se cura en base al nivel del boost
 		Integer healedDamage = AbsorbDamageComponentDecorator.BASE_DAMAGE_ABSORBED + (super.level-1)*10;
@@ -30,9 +41,5 @@ public class AbsorbDamageComponentDecorator extends AbstractActionComponentDecor
 	public void performAction(Character performer, Character target, Integer boost) throws ActionException{
 		this.absorbDamage(performer);
 		super.getActionComponent().performAction(performer, target, boost);
-	}
-	@Override
-	public String getName() {
-		return "Mejora de absorber daño";
 	}
 }

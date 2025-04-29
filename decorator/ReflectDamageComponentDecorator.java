@@ -9,8 +9,14 @@ import com.utad.ds.proyectoFinal.common.Character;
 public class ReflectDamageComponentDecorator extends AbstractActionComponentDecorator{
 	public static final Integer BASE_REFLECT_CHANCE = 30;
 	public static final Integer MAX_REFLECT_CHANCE = 80;
-	public ReflectDamageComponentDecorator(ActionComponent actionComponent, Integer level){
-		super(actionComponent, level);
+	public ReflectDamageComponentDecorator(ActionComponent actionComponent, Integer level)
+	{
+		this(actionComponent, level, AbstractActionComponentDecorator.DEFAULT_NAME);
+	}
+	
+	public ReflectDamageComponentDecorator(ActionComponent actionComponent, Integer level, String name)
+	{
+		super(actionComponent, level, name);
 	}
 	public String getDescription() {
 		return super.getActionComponent().getDescription() + " con mejora de reflejar daño de nivel " + this.level;
@@ -38,8 +44,9 @@ public class ReflectDamageComponentDecorator extends AbstractActionComponentDeco
 		this.decideReflect(performer);
 		super.getActionComponent().performAction(performer, target, boost);
 	}
-	@Override
-	public String getName() {
+	
+	public String getName()
+	{
 		return "Mejora de reflejar daño";
 	}
 
