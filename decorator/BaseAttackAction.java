@@ -41,4 +41,9 @@ public class BaseAttackAction implements BaseActionComponent{
 		//Por debajo de la base no hay nada
 		return null;
 	}
+	
+	public BaseActionComponent getBaseAction()
+	{
+		return this;
+	}
 }

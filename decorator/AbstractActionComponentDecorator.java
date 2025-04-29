@@ -42,8 +42,25 @@ public abstract class AbstractActionComponentDecorator implements ActionComponen
 			return this.getActionComponent().searchComponentDecorator(decorator);
 		}
 	}
+	
+	public BaseActionComponent getBaseAction()
+	{
+		if(this.getActionComponent() instanceof BaseActionComponent)
+		{
+			return (BaseActionComponent)this.getActionComponent();
+		}
+		
+		else
+		{
+			return this.getActionComponent().getBaseAction();
+		}
+	}
+	
+	
 	public ActionComponent getActionComponent() { return this.actionComponent; }
 	public void setLevel(Integer level) { this.level = level; }
 	public Integer getLevel() { return this.level; }
 	public String getName() { return this.name; }
+	
+	
 }

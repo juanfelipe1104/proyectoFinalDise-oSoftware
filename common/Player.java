@@ -27,4 +27,6 @@ public class Player extends GameCharacter
 	public void playTurn(Character target) {
 		this.performAction(target);
 	}
+	
+	public List<Item> getInventory()	{ return this.inventory; }
 }

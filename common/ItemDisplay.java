@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 
 import com.utad.ds.proyectoFinal.decorator.*;
+import com.utad.ds.proyectoFinal.facade.GameControllerFachade;
 
 //Despues de cada pelea se daran a elegir tres mejoras
 public class ItemDisplay 
@@ -46,6 +47,60 @@ public class ItemDisplay
 		
 		this.action = this.actions.getFirst();
 		this.item = this.items.getFirst();
+	}
+	
+	public void selectUpgrade()
+	{
+		Integer opcionElegida = -1;
+		List<String> opciones = new ArrayList<String>();
+		opciones.add(this.item.getName());
+		opciones.add(this.action.getName());
+		opcionElegida = GameControllerFachade.pantallaDeSeleccion(opciones);
+		
+		//Se elige el item
+		if(opcionElegida == 1)
+		{
+			this.player.getInventory().add(item);
+		}
+		
+		//Se elige la mejora
+		else if(opcionElegida == 2)
+		{
+			//El jugador no tenia esa mejora
+			if(this.action.getActionComponent().searchComponentDecorator(action) == null)
+			{
+				//Buscamos la accion base para saber de que tipo es y asi ver que accion cambiar
+				BaseActionComponent baseAction = this.action.getActionComponent().getBaseAction();
+				switch(baseAction.getActionType())
+				{
+					case ActionType.ATK:
+					{
+						this.player.setPhysicalAttackAction(this.action);
+					}
+					
+					case ActionType.MAG:
+					{
+						this.player.setMagicAttackAction(this.action);
+					}
+					
+					case ActionType.HEAL:
+					{
+						this.player.setHealAction(this.action);
+					}
+					
+					case ActionType.GUARD:
+					{
+						this.player.setGuardAction(this.action);
+					}
+				}
+			}
+			
+			//Si ya tenia esta mejora, la subimos de nivel
+			else
+			{
+				this.action.getActionComponent().searchComponentDecorator(action).levelUp();
+			}
+		}
 	}
 	
 	
