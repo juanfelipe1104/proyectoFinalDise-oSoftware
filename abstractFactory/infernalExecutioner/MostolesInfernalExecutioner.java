@@ -11,13 +11,9 @@ public class MostolesInfernalExecutioner extends Enemy implements InfernalExecut
 	}
 	public MostolesInfernalExecutioner(CharacterStats characterStats){
 		super(characterStats);
+		super.characterStats.setStrength(((int)(super.characterStats.getStrength()*MostolesAbstractFactory.INCREASE_STATS)));
 	}
-	@Override
-	public void increaseStats() {
-		if(super.characterStats.getHP()<=super.characterStats.getMaxHP()){
-			super.characterStats.setStrength(((int)(super.characterStats.getStrength()*MostolesAbstractFactory.INCREASE_STATS)));
-		}
-	}
+	
 	@Override
 	public void useSkill(Character target) {	
 		this.increaseMagicDefense();

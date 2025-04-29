@@ -11,14 +11,10 @@ public class MostolesIroncladBrute extends Enemy implements IroncladBrute{
 	}
 	public MostolesIroncladBrute(CharacterStats characterStats){
 		super(characterStats);
+		super.characterStats.setMagicDef((int)(super.characterStats.getMagicDef()*MostolesAbstractFactory.INCREASE_STATS));
+		super.characterStats.setPhysicalDef((int)(super.characterStats.getPhysicalDef()*MostolesAbstractFactory.INCREASE_STATS));
 	}
-	@Override
-	public void increaseStats() {
-		if(super.characterStats.getHP()<=(super.characterStats.getMaxHP())*0.3){
-			super.characterStats.setMagicDef((int)(super.characterStats.getMagicDef()*MostolesAbstractFactory.INCREASE_STATS));
-			super.characterStats.setPhysicalDef((int)(super.characterStats.getPhysicalDef()*MostolesAbstractFactory.INCREASE_STATS));
-		}
-	}
+
 	@Override
 	public void useSkill(Character target) {	
 		this.increasePhysicalDefense();

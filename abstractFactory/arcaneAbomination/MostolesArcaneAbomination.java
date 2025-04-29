@@ -13,14 +13,10 @@ public class MostolesArcaneAbomination extends Enemy implements ArcaneAbominatio
 	public MostolesArcaneAbomination(CharacterStats characterStats) {
 		super(characterStats);
 		this.followUpAttack = false;
+		this.characterStats.setMagic((int)(this.characterStats.getMagic()*MostolesAbstractFactory.INCREASE_STATS));
 		
 	}	
-	@Override
-	public void increaseStats() {
-		if(this.characterStats.getHP()<=this.characterStats.getMaxHP()){
-			this.characterStats.setMagic((int)(this.characterStats.getMagic()*MostolesAbstractFactory.INCREASE_STATS));
-		}
-	}
+	
 	@Override
 	public void followUpAttack(Character opponent) {	
 		if(!this.followUpAttack){

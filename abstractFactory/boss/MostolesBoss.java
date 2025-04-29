@@ -1,5 +1,6 @@
 package com.utad.ds.proyectoFinal.abstractFactory.boss;
 
+import com.utad.ds.proyectoFinal.abstractFactory.MostolesAbstractFactory;
 import com.utad.ds.proyectoFinal.common.Character;
 import com.utad.ds.proyectoFinal.common.CharacterStats;
 import com.utad.ds.proyectoFinal.common.Enemy;
@@ -13,13 +14,11 @@ public class MostolesBoss extends Enemy implements Boss{
 	public MostolesBoss(CharacterStats characterStats){
 		super(characterStats);
 		this.revive = false;
+		super.characterStats.setMagicDef((int)(super.characterStats.getMagicDef()*MostolesAbstractFactory.INCREASE_STATS));
+		super.characterStats.setPhysicalDef((int)(super.characterStats.getPhysicalDef()*MostolesAbstractFactory.INCREASE_STATS));
+		super.characterStats.setStrength(((int)(super.characterStats.getStrength()*MostolesBoss.INCREASE_STATS)));	
 	}
-	@Override
-	public void increaseStats() {
-		if(super.characterStats.getHP()<=super.characterStats.getMaxHP()){
-			super.characterStats.setStrength(((int)(super.characterStats.getStrength()*MostolesBoss.INCREASE_STATS)));	
-		}
-	}
+	
 	@Override
 	public void useSkill(Character target) {	
 		this.revive();

@@ -11,14 +11,10 @@ public class MagicForestIroncladBrute extends Enemy implements IroncladBrute{
 	}
 	public MagicForestIroncladBrute(CharacterStats characterStats){
 		super(characterStats);
+		super.characterStats.setMagicDef((int)(super.characterStats.getMagicDef()*MagicForestAbstractFactory.INCREASE_STATS));
+		super.characterStats.setPhysicalDef((int)(super.characterStats.getPhysicalDef()*MagicForestAbstractFactory.INCREASE_STATS));
 	}
-	@Override
-	public void increaseStats() {
-		if(super.characterStats.getHP()<=(super.characterStats.getMaxHP())*0.3){
-			super.characterStats.setMagicDef((int)(super.characterStats.getMagicDef()*MagicForestAbstractFactory.INCREASE_STATS));
-			super.characterStats.setPhysicalDef((int)(super.characterStats.getPhysicalDef()*MagicForestAbstractFactory.INCREASE_STATS));
-		}
-	}
+	
 	@Override
 	public void useSkill(Character target) {	
 		this.increasePhysicalDefense();
