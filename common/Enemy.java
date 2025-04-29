@@ -33,7 +33,6 @@ public abstract class Enemy extends GameCharacter{
 		}
 	}
 	public abstract void useSkill(Character character);
-	public abstract void increaseStats();
 	public void setEnemyBehaviorStrategy(EnemyBehaviorStrategy enemyBehaviorStrategy){
 		this.enemyBehaviorStrategy = enemyBehaviorStrategy;
 	}

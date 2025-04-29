@@ -27,7 +27,7 @@ public class EnemyFactoryContext {
 		return this.enemyAbstractFactory.createIroncladBrute();
 	}
 	public Boss createBoss(){
-		return this.createBoss();
+		return this.enemyAbstractFactory.createBoss();
 	}
 	public void setEnemyAbstractFactory(EnemyAbstractFactory enemyAbstractFactory) {
 		this.enemyAbstractFactory = enemyAbstractFactory;

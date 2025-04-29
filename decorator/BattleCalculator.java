@@ -46,9 +46,17 @@ public class BattleCalculator {
 		Integer damage = this.changeBaseDamage(baseDamage, targetStats, boost);
 		//Un golpe critico deja al enemigo herido y hace mas daño. Solo los golpes fisicos pueden ser criticos
 		if(this.decideCrit()){
+			System.out.println("Un golpe crítico!");
 			damage = (int)(damage*1.5);
-			target.removeSideEffect();
-			target.applyBleeding();
+			if(!targetStats.getReflecting()){
+				target.removeSideEffect();
+				target.applyBleeding();
+			}
+			else{
+				attacker.removeSideEffect();
+				attacker.applyBleeding();
+			}
+			
 		}
 		if(targetStats.getReflecting()){
 			damage = (int)(damage*-0.7);  //Refleja el 70% del daño si lo hace, y lo ponemos negativo para indicar que el daño se hace en sentido contrario
