@@ -10,6 +10,8 @@ public class MpPotionItem implements Item
 		{
 			character.getCharacterStats().setMP(character.getCharacterStats().getMaxMP());
 		}
+		
+		((Player)character).getInventory().remove(this);
 	}
 
 	public String getName() 

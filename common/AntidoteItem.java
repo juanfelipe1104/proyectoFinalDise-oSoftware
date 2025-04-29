@@ -5,6 +5,7 @@ public class AntidoteItem implements Item
 	public void useItem(Character character) 
 	{
 		character.removeSideEffect();
+		((Player)character).getInventory().remove(this);
 	}
 
 

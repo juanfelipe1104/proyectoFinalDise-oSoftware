@@ -3,6 +3,7 @@ package com.utad.ds.proyectoFinal.decorator;
 import com.utad.ds.proyectoFinal.common.CharacterStats;
 import com.utad.ds.proyectoFinal.common.ActionException;
 import com.utad.ds.proyectoFinal.common.Character;
+import com.utad.ds.proyectoFinal.common.Enemy;
 
 public class BaseMagicAction implements BaseActionComponent{
 	public String getDescription() {
@@ -11,9 +12,17 @@ public class BaseMagicAction implements BaseActionComponent{
 	public void performAction(Character performer, Character target) throws ActionException{
 		this.performAction(performer, target, 0);
 	}
-	public void performAction(Character performer, Character target, Integer boost) throws ActionException{
+	public void performAction(Character performer, Character target, Integer boost) throws ActionException
+	{
 		CharacterStats performerStats = performer.getCharacterStats();
 		CharacterStats targetStats = target.getCharacterStats();
+		
+		performerStats.setMP(performerStats.getMP() - Enemy.MP_COST);
+		if(performerStats.getMP() < 0)
+		{
+			performerStats.setMP(0);
+		}
+		
 		Integer damage = BattleCalculator.getInstance().calculateMagicDamage(performer, target, boost);
 		//Ataque reflejado
 		if(damage <= 0)	{

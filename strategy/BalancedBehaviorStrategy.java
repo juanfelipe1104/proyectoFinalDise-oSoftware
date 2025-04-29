@@ -14,32 +14,36 @@ public class BalancedBehaviorStrategy implements EnemyBehaviorStrategy{
 		//Ataque fisico
 		if(numRandom <=25){
 			performer.getPhysicalAttackAction().performAction(performer, target);
+			System.out.println(performer.getCharacterStats().getName() + " realiza " + performer.getPhysicalAttackAction().getDescription());
 		}	
 		//Ataque magico
 		else if(numRandom > 25 && numRandom <=50){
 			if(performer.getCharacterStats().getMP() >= Enemy.MP_COST){
 				performer.getMagicAttackAction().performAction(performer, target);
-				performer.getCharacterStats().setMP(performer.getCharacterStats().getMP() - Enemy.MP_COST);
+				System.out.println(performer.getCharacterStats().getName() + " realiza " + performer.getMagicAttackAction().getDescription());
 			}	
 			//Si no tiene MP, en su lugar hace un ataque fisico
 			else{
 				performer.getPhysicalAttackAction().performAction(performer, target);
+				System.out.println(performer.getCharacterStats().getName() + " realiza " + performer.getPhysicalAttackAction().getDescription());
 			}
 		}	
 		//Curarse
 		else if(numRandom > 50 && numRandom <=75){
 			if(performer.getCharacterStats().getMP() >= Enemy.MP_COST){
 				performer.getHealAction().performAction(performer, target);
-				performer.getCharacterStats().setMP(performer.getCharacterStats().getMP() - Enemy.MP_COST);
+				System.out.println(performer.getCharacterStats().getName() + " realiza " + performer.getHealAction().getDescription());
 			}
 			//Si no tiene MP, en su lugar se protege
 			else{
 				performer.getGuardAction().performAction(performer, target);
+				System.out.println(performer.getCharacterStats().getName() + " realiza " + performer.getGuardAction().getDescription());
 			}
 		}	
 		//Protegerse
 		else{
 			performer.getGuardAction().performAction(performer, target);
+			System.out.println(performer.getCharacterStats().getName() + " realiza " + performer.getGuardAction().getDescription());
 		}
 	}
 }
