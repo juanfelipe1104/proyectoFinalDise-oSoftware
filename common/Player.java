@@ -29,7 +29,6 @@ public class Player extends GameCharacter {
 		super.characterStats.setCanAttack(true);
 		super.performEffect();
 		if(super.characterStats.getCanAttack() && !(super.currentState instanceof DeadState)){
-			System.out.println(super.characterStats.getName() + " realiza la accion " + super.currentAction.getDescription());
 			this.performAction(target);
 		}
 	}

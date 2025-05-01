@@ -42,9 +42,10 @@ public class ItemDisplay {
 		this.item = this.items.getFirst();
 	}
 	public void selectUpgrade(){
+		System.out.println("Tienes la oportunidad de elegir una mejora!");
 		Integer opcionElegida = -1;
 		List<String> opciones = new ArrayList<String>();
-		opciones.add(this.item.getName());
+		opciones.add(this.item.toString());
 		opciones.add(this.action.getName());
 		opcionElegida = GameControllerFacade.pantallaDeSeleccion(opciones);
 		//Se elige el item

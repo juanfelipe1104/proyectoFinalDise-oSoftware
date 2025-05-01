@@ -169,7 +169,17 @@ public class GameControllerFacade implements GameController{
 			this.player.setCurrentAction(this.player.getGuardAction());
 		break;
 		case 3:
-			this.player.setCurrentAction(this.player.getHealAction());
+			if(this.player.getCharacterStats().getMP() >= Enemy.MP_COST)
+			{
+				this.player.setCurrentAction(this.player.getHealAction());
+			}
+			
+			else
+			{
+				System.out.println(this.player.getCharacterStats().getName() + " no tiene suficientes puntos de magia para curarse. En su lugar, se protegerá.");
+				this.player.setCurrentAction(this.player.getGuardAction());
+			}
+			
 		break;
 		case 4:
 			Integer index = GameControllerFacade.pantallaDeSeleccion(((Player)this.player).getInventory());
@@ -179,13 +189,24 @@ public class GameControllerFacade implements GameController{
 			this.choosePlayerAction(GameControllerFacade.pantallaDeSeleccion(GameControllerFacade.GAME_OPTIONS));
 		}
 	}
-	private void chooseAttackType(Integer option) {
+	private void chooseAttackType(Integer option) 
+	{
 		switch(option) {
 		case 1:
 			this.player.setCurrentAction(this.player.getPhysicalAttackAction());
 		break;
 		case 2:
-			this.player.setCurrentAction(this.player.getMagicAttackAction());
+			if(this.player.getCharacterStats().getMP() >= Enemy.MP_COST)
+			{
+				this.player.setCurrentAction(this.player.getMagicAttackAction());
+			}
+			
+			else
+			{
+				System.out.println(this.player.getCharacterStats().getName() + " no tiene suficientes puntos de magia para lanzar un hechizo. En su lugar, hará un ataque físico.");
+				this.player.setCurrentAction(this.player.getPhysicalAttackAction());
+			}
+			
 		break;
 		default:
 			this.player.setCurrentAction(this.player.getPhysicalAttackAction());
@@ -193,9 +214,20 @@ public class GameControllerFacade implements GameController{
 		}
 	}
 	private void playTurn() {
-		if(!this.salir) {
-			this.player.playTurn(this.enemy);
-			this.enemy.playTurn(this.player);
+		if(!this.salir) 
+		{
+			if(this.player.getCharacterStats().getSpeed() >= this.enemy.getCharacterStats().getSpeed())
+			{
+				this.player.playTurn(this.enemy);
+				this.enemy.playTurn(this.player);
+			}
+			
+			else
+			{
+				this.enemy.playTurn(this.player);
+				this.player.playTurn(this.enemy);
+			}
+			
 		}
 		
 	}

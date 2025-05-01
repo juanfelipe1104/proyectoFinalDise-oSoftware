@@ -23,4 +23,9 @@ public class MpPotionItem implements Item
 		return "Recupera " + MpPotionItem.MP_HEALED + " puntos de magia";
 	}
 	
+	public String toString()
+	{
+		return this.getName() + ": " + this.getDescription();
+	}
+	
 }

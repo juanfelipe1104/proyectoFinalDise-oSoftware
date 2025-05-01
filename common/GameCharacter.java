@@ -98,4 +98,5 @@ public abstract class GameCharacter implements Character{
 		return "GameCharacter [characterStats=" + this.characterStats + ", currentState=" + this.currentState + ", currentAction="
 				+ this.currentAction + "]";
 	}
+	
 }

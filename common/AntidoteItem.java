@@ -17,8 +17,12 @@ public class AntidoteItem implements Item
 
 	public String getDescription() 
 	{
-
 		return "Cura los efectos alterados";
+	}
+	
+	public String toString()
+	{
+		return this.getName() + ": " + this.getDescription();
 	}
 
 }

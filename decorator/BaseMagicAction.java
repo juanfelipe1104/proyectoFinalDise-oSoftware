@@ -57,6 +57,7 @@ public class BaseMagicAction implements BaseActionComponent{
 	
 	public void performActionFirst(Character performer, Character target) throws ActionException
 	{
+		System.out.println(performer.getCharacterStats().getName() + " realiza " + this.getDescription());
 		this.performAction(performer, target);
 	}
 }
