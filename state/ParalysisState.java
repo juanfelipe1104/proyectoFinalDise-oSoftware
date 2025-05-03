@@ -39,4 +39,8 @@ public class ParalysisState implements CharacterState {
 	public void killCharacter() {
 		this.character.setCurrentState(this.character.getDeadState());
 	}
+	@Override
+	public String toString() {
+		return "ParalysisState";
+	}
 }

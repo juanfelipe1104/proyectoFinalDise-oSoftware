@@ -46,6 +46,42 @@ public abstract class GameCharacter implements Character{
 		this.currentAction = this.physicalAttackAction;
 	}
 	@Override
+	public void performEffect() {
+		this.currentState.performEffect(); //Delegación por composición
+	}
+	@Override
+	public void removeSideEffect() {
+		this.currentState.removeSideEffect(); //Delegación por composición
+	}
+	@Override
+	public void applyParalysis() {
+		this.currentState.applyParalysis(); //Delegación por composición
+	}
+	@Override
+	public void applyBleeding() {
+		this.currentState.applyBleeding(); //Delegación por composición
+	}
+	@Override
+	public void applySlowDown() {
+		this.currentState.applySlowDown(); //Delegación por composición
+	}
+	@Override
+	public void killCharacter() {
+		this.currentState.killCharacter(); //Delegación por composición
+	}
+	@Override
+	public Boolean isDead() {
+		return this.currentState instanceof DeadState;
+	}
+	@Override
+	public Boolean hasEnoughMP() {
+		return this.characterStats.getMP() >= Enemy.MP_COST;
+	}
+	@Override
+	public Boolean isFaster(Character opponent){
+		return this.characterStats.getSpeed() >= opponent.getCharacterStats().getSpeed();
+	}
+	@Override
 	public CharacterStats getCharacterStats() { return this.characterStats; }
 	@Override
 	public void setCurrentState(CharacterState characterState) { this.currentState = characterState;}
@@ -58,19 +94,7 @@ public abstract class GameCharacter implements Character{
 	@Override
 	public SlowDownState getSlowDownState() { return this.slowDownState; }
 	@Override
-	public void performEffect() { this.currentState.performEffect(); }
-	@Override
-	public void removeSideEffect() { this.currentState.removeSideEffect(); }
-	@Override
-	public void applyParalysis() { this.currentState.applyParalysis(); }
-	@Override
-	public void applyBleeding() { this.currentState.applyBleeding(); }
-	@Override
-	public void applySlowDown() { this.currentState.applySlowDown(); }
-	@Override
 	public DeadState getDeadState() { return this.deadState; }
-	@Override
-	public void killCharacter() { this.currentState.killCharacter(); }
 	@Override
 	public CharacterState getCurrentState() { return this.currentState; }
 	@Override
@@ -90,13 +114,9 @@ public abstract class GameCharacter implements Character{
 	@Override
 	public void setHealAction(ActionComponent healAction) { this.healAction = healAction; }
 	@Override
-	public void setCurrentAction(ActionComponent currentAction) {
-		this.currentAction = currentAction;
-	}
+	public void setCurrentAction(ActionComponent currentAction) { this.currentAction = currentAction; }
 	@Override
 	public String toString() {
-		return "GameCharacter [characterStats=" + this.characterStats + ", currentState=" + this.currentState + ", currentAction="
-				+ this.currentAction + "]";
+		return this.characterStats + "\n" + this.currentState;
 	}
-	
 }

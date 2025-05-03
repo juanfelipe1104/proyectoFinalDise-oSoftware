@@ -40,4 +40,8 @@ public class DefensiveBehaviorStrategy implements EnemyBehaviorStrategy{
 			performer.getGuardAction().performActionFirst(performer, target);
 		}
 	}
+	@Override
+	public String toString() {
+		return "DefensiveBehaviorStrategy";
+	}
 }

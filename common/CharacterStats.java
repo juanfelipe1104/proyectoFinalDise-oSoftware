@@ -90,11 +90,10 @@ public class CharacterStats {
 	public void setCanAttack(Boolean canAttack) {	this.canAttack = canAttack;	}
 	@Override
 	public String toString() {
-		return "CharacterStats [name=" + this.name + ", strength=" + this.strength + ", magic=" + this.magic + ", physicalDef="
-				+ this.physicalDef + ", magicDef=" + this.magicDef + ", speed=" + this.speed + ", MaxHP=" + this.MaxHP + ", HP=" + this.HP
-				+ ", MaxMP=" + this.MaxMP + ", MP=" + this.MP + ", atkBoost=" + this.atkBoost + ", magicBoost=" + this.magicBoost
-				+ ", guardBoost=" + this.guardBoost + ", guarding=" + this.guarding + ", reflecting=" + this.reflecting
-				+ ", guardingPercentage=" + this.guardingPercentage + ", canAttack=" + this.canAttack + "]";
+		return this.name + "\n"
+				+ "Strength: " + this.strength + " Magic: " + this.magic + " Defense: " + this.physicalDef + " MagicDefense: " + this.magicDef + "\n"
+				+ "HP: " + this.HP + " Mana: " + this.MP + " Speed: " + this.speed + "\n"
+				+ "MaxHP: " + this.MaxHP + " MaxMana: " + this.MaxMP;
 	}
 }
 

@@ -32,4 +32,8 @@ public class DeadState implements CharacterState {
 	public void killCharacter() {
 		// None
 	}
+	@Override
+	public String toString() {
+		return "DeadState";
+	}
 }

@@ -35,4 +35,8 @@ public class BaseState implements CharacterState {
 		this.character.setCurrentState(this.character.getDeadState());
 		System.out.println(this.character.getCharacterStats().getName() + " ha muerto");
 	}
+	@Override
+	public String toString() {
+		return "BaseState";
+	}
 }

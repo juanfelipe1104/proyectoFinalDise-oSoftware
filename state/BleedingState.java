@@ -32,4 +32,8 @@ public class BleedingState implements CharacterState{
 	public void killCharacter() {
 		this.character.setCurrentState(this.character.getDeadState());
 	}
+	@Override
+	public String toString() {
+		return "BleedingState";
+	}
 }

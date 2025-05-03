@@ -25,9 +25,6 @@ public abstract class Enemy extends GameCharacter{
 			this.performAction(target);
 			this.useSkill(target);
 		}
-		if(this instanceof Boss) {
-			this.useSkill(target);
-		}
 	}
 	public void performAction(Character target) {
 		try {
@@ -42,6 +39,10 @@ public abstract class Enemy extends GameCharacter{
 	}
 	@Override
 	public String toString() {
-		return super.toString() + "Enemy [enemyBehaviorStrategy=" + this.enemyBehaviorStrategy + "]";
+		return "Enemy: " + super.toString() + "\n"
+				+ this.enemyBehaviorStrategy;
+	}
+	public Boolean isBoss() {
+		return this instanceof Boss;
 	}
 }

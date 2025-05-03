@@ -22,8 +22,7 @@ public class BaseHealingAction implements BaseActionComponent{
 	public void performAction(Character performer, Character target, Integer boost) throws ActionException{
 		CharacterStats performerStats = performer.getCharacterStats();
 		performerStats.setMP(performerStats.getMP() - Enemy.MP_COST);
-		if(performerStats.getMP() < 0)
-		{
+		if(performerStats.getMP() < 0){
 			performerStats.setMP(0);
 		}
 		Integer healing = BattleCalculator.getInstance().calculateHealing(performer, boost);
@@ -40,9 +39,7 @@ public class BaseHealingAction implements BaseActionComponent{
 	public BaseActionComponent getBaseAction() {
 		return this;
 	}
-	
-	public void performActionFirst(Character performer, Character target) throws ActionException
-	{
+	public void performActionFirst(Character performer, Character target) throws ActionException{
 		System.out.println(performer.getCharacterStats().getName() + " realiza " + this.getDescription());
 		this.performAction(performer, target);
 	}

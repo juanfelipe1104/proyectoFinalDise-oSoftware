@@ -46,8 +46,7 @@ public class BaseAttackAction implements BaseActionComponent{
 		return this;
 	}
 	
-	public void performActionFirst(Character performer, Character target) throws ActionException
-	{
+	public void performActionFirst(Character performer, Character target) throws ActionException{
 		System.out.println(performer.getCharacterStats().getName() + " realiza " + this.getDescription());
 		this.performAction(performer, target);
 	}
