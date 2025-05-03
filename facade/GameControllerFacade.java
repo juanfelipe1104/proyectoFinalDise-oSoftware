@@ -34,7 +34,6 @@ public class GameControllerFacade implements GameController{
 		GameControllerFacade.GAME_OPTIONS.add("Curarse");
 		GameControllerFacade.GAME_OPTIONS.add("Usar item");
 		GameControllerFacade.VICTORY_OPTIONS = new ArrayList<String>();
-		GameControllerFacade.VICTORY_OPTIONS.add("Dejar de jugar");
 		GameControllerFacade.VICTORY_OPTIONS.add("Jugar otra partida, con enemigos mas dificiles");
 	}
 	//Método para dar a elegir varias opciones de una lista
@@ -60,6 +59,7 @@ public class GameControllerFacade implements GameController{
 	private Boolean victory;
 	private Integer roundNumber;
 	private Integer worldNumber;
+	private Integer runNumber;
 	private Boolean endRun;
 	private ItemDisplay itemDisplay;
 	private EnemyFactoryContext enemyFactoryContext;
@@ -71,6 +71,7 @@ public class GameControllerFacade implements GameController{
 		this.endRun = false;
 		this.roundNumber = 0;
 		this.worldNumber = 1;
+		this.runNumber = 1;
 	}
 	private void createPlayer() {
 		Scanner scanner = new Scanner(System.in);
@@ -93,8 +94,6 @@ public class GameControllerFacade implements GameController{
 	private void nextTurn() {
 		if(this.enemy.isDead()) {
 			((Player)this.player).increaseStats();
-			((Player)this.player).restoreHP();
-			((Player)this.player).restoreMP();
 			this.itemDisplay = new ItemDisplay((Player)this.player);
 			this.itemDisplay.selectUpgrade();
 			this.createEnemy();
@@ -117,28 +116,40 @@ public class GameControllerFacade implements GameController{
 			break;
 			case 1:
 				System.out.println("Empieza una nueva partida");
-				this.worldNumber = 1;
-				this.changeWorld();
+				this.startNewRun();
 			break;
 		}	
+	}
+	private void startNewRun() {
+		this.victory = false;
+		this.roundNumber = 0;
+		this.worldNumber = 1;
+		this.runNumber++;
+		this.changeWorld();
+		this.enemyFactoryContext.increaseStats(this.runNumber);
+		this.enemy = this.enemyFactoryContext.createRandomEnemy();
 	}
 	private void createEnemy(){
 		this.roundNumber++;
 		if(((Enemy)this.enemy).isBoss()) {
-			this.worldNumber++;
 			if(this.enemy instanceof MostolesBoss) {
 				this.victory = true;
 			}
-			this.changeWorld();
+			else {
+				this.worldNumber++;
+				this.changeWorld();
+			}
 		}
-		if(this.roundNumber.equals(4)){
-			this.enemy = (Enemy) this.enemyFactoryContext.createBoss();
-			System.out.println("Ha aparecido el jefe " + this.enemy.getCharacterStats().getName());
-			this.roundNumber = 0;
-		}
-		else{
-			this.enemy = this.enemyFactoryContext.createRandomEnemy();
-			System.out.println("Se ha generado un nuevo enemigo");		
+		if(!this.victory) {
+			if(this.roundNumber.equals(4)){
+				this.enemy = (Enemy) this.enemyFactoryContext.createBoss();
+				System.out.println("Ha aparecido el jefe " + this.enemy.getCharacterStats().getName());
+				this.roundNumber = 0;
+			}
+			else{
+				this.enemy = this.enemyFactoryContext.createRandomEnemy();
+				System.out.println("Se ha generado un nuevo enemigo");		
+			}
 		}
 	}
 	private void changeWorld() {

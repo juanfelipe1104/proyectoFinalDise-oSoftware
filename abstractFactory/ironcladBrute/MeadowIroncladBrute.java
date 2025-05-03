@@ -11,8 +11,7 @@ public class MeadowIroncladBrute extends Enemy implements IroncladBrute{
 	}
 	public MeadowIroncladBrute(CharacterStats characterStats){
 		super(characterStats);
-		super.characterStats.setMagicDef((int)(super.characterStats.getMagicDef()*MeadowAbstractFactory.INCREASE_STATS));
-		super.characterStats.setPhysicalDef((int)(super.characterStats.getPhysicalDef()*MeadowAbstractFactory.INCREASE_STATS));
+		this.increaseStats();
 	}
 	
 	@Override
@@ -21,6 +20,10 @@ public class MeadowIroncladBrute extends Enemy implements IroncladBrute{
 	}
 	@Override
 	public void increasePhysicalDefense() {
-		super.characterStats.setPhysicalDef((int)(super.characterStats.getPhysicalDef()*MeadowAbstractFactory.INCREASE_STATS));
+		super.characterStats.setPhysicalDef((int)(super.characterStats.getPhysicalDef()*1.1));
+	}
+	@Override
+	public void increaseStats() {
+		super.characterStats.increaseStats(MeadowAbstractFactory.INCREASE_STATS);
 	}
 }

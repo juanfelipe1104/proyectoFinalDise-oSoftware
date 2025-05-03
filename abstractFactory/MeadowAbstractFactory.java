@@ -10,7 +10,7 @@ import com.utad.ds.proyectoFinal.abstractFactory.ironcladBrute.IroncladBrute;
 import com.utad.ds.proyectoFinal.abstractFactory.ironcladBrute.MeadowIroncladBrute;
 
 public class MeadowAbstractFactory implements EnemyAbstractFactory{
-	public static final Double INCREASE_STATS = 1.3;
+	public static Double INCREASE_STATS = 1.1;
 	@Override
 	public ArcaneAbomination createArcaneAbomination() {
 		return new MeadowArcaneAbomination();

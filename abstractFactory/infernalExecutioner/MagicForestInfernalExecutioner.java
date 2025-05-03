@@ -14,8 +14,8 @@ public class MagicForestInfernalExecutioner extends Enemy implements InfernalExe
 	}
 	public MagicForestInfernalExecutioner(CharacterStats characterStats){
 		super(characterStats, new DefensiveBehaviorStrategy());
+		this.increaseStats();
 		super.physicalAttackAction = new InflictParalysisComponentDecorator(super.physicalAttackAction, MagicForestInfernalExecutioner.boostIncrease++);
-		super.characterStats.setStrength(((int)(super.characterStats.getStrength()*MagicForestAbstractFactory.INCREASE_STATS)));
 	}
 	
 	@Override
@@ -24,6 +24,10 @@ public class MagicForestInfernalExecutioner extends Enemy implements InfernalExe
 	}
 	@Override
 	public void increaseMagicDefense() {
-		super.characterStats.setMagicDef(super.characterStats.getMagicDef()+10);
+		super.characterStats.setMagicDef((int)(super.characterStats.getMagicDef()*1.1));
+	}
+	@Override
+	public void increaseStats() {
+		super.characterStats.increaseStats(MagicForestAbstractFactory.INCREASE_STATS);
 	}
 }

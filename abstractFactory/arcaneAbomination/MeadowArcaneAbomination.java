@@ -12,8 +12,8 @@ public class MeadowArcaneAbomination extends Enemy implements ArcaneAbomination{
 	}
 	public MeadowArcaneAbomination(CharacterStats characterStats) {
 		super(characterStats);
+		this.increaseStats();
 		this.followUpAttack = false;
-		super.characterStats.setMagic((int)(super.characterStats.getMagic()*MeadowAbstractFactory.INCREASE_STATS));
 	}	
 
 	@Override
@@ -27,5 +27,9 @@ public class MeadowArcaneAbomination extends Enemy implements ArcaneAbomination{
 	@Override
 	public void useSkill(Character opponent) {	
 		this.followUpAttack(opponent);
+	}
+	@Override
+	public void increaseStats() {
+		super.characterStats.increaseStats(MeadowAbstractFactory.INCREASE_STATS);
 	}
 }

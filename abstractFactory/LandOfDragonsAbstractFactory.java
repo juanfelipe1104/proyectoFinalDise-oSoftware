@@ -10,7 +10,7 @@ import com.utad.ds.proyectoFinal.abstractFactory.ironcladBrute.IroncladBrute;
 import com.utad.ds.proyectoFinal.abstractFactory.ironcladBrute.LandOfDragonsIroncladBrute;
 
 public class LandOfDragonsAbstractFactory implements EnemyAbstractFactory{
-	public static final Double INCREASE_STATS = 1.1;
+	public static Double INCREASE_STATS = 1.3;
 	@Override
 	public ArcaneAbomination createArcaneAbomination() {
 		return new LandOfDragonsArcaneAbomination();

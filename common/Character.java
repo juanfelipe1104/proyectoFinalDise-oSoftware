@@ -22,6 +22,7 @@ public interface Character {
 	public abstract void applyBleeding();
 	public abstract void applySlowDown();
 	public abstract void killCharacter();
+	public abstract void increaseStats();
 	public abstract Boolean isDead();
 	public abstract Boolean hasEnoughMP();
 	public abstract Boolean isFaster(Character opponent);

@@ -15,9 +15,9 @@ public class MostolesArcaneAbomination extends Enemy implements ArcaneAbominatio
 	}
 	public MostolesArcaneAbomination(CharacterStats characterStats) {
 		super(characterStats, new MagicOffensiveBehaviorStrategy());
+		this.increaseStats();
 		this.followUpAttack = false;
 		super.magicAttackAction = new SkillBoostComponentDecorator(super.magicAttackAction, MostolesArcaneAbomination.boostIncrease++);
-		this.characterStats.setMagic((int)(this.characterStats.getMagic()*MostolesAbstractFactory.INCREASE_STATS));
 	}	
 	
 	@Override
@@ -31,5 +31,9 @@ public class MostolesArcaneAbomination extends Enemy implements ArcaneAbominatio
 	@Override
 	public void useSkill(Character opponent) {	
 		this.followUpAttack(opponent);
+	}
+	@Override
+	public void increaseStats() {
+		super.characterStats.increaseStats(MostolesAbstractFactory.INCREASE_STATS);
 	}
 }

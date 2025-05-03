@@ -9,22 +9,19 @@ import com.utad.ds.proyectoFinal.state.DeadState;
 
 public class MostolesBoss extends Enemy implements Boss{
 	private static Integer boostIncrease = 2;
-	public static final Double INCREASE_STATS = 5.0;
+	public static Double INCREASE_STATS = 5.0;
 	private Boolean revive;
 	public MostolesBoss(){
 		this(new CharacterStats("El capo mostoleño",30,30,30,30,150,500,100));
 	}
 	public MostolesBoss(CharacterStats characterStats){
 		super(characterStats);
+		this.increaseStats();
 		this.revive = false;
 		super.magicAttackAction = new SkillBoostComponentDecorator(super.magicAttackAction,MostolesBoss.boostIncrease++);
 		super.physicalAttackAction = new SkillBoostComponentDecorator(super.physicalAttackAction, MostolesBoss.boostIncrease++);
 		super.healAction = new SkillBoostComponentDecorator(super.healAction, MostolesBoss.boostIncrease++);
 		super.guardAction = new SkillBoostComponentDecorator(super.guardAction, MostolesBoss.boostIncrease++);
-		super.characterStats.setMagicDef((int)(super.characterStats.getMagicDef()*MostolesAbstractFactory.INCREASE_STATS));
-		super.characterStats.setPhysicalDef((int)(super.characterStats.getPhysicalDef()*MostolesAbstractFactory.INCREASE_STATS));
-		super.characterStats.setStrength(((int)(super.characterStats.getStrength()*MostolesBoss.INCREASE_STATS)));	
-		super.characterStats.setMagic(((int)(super.characterStats.getMagic()*MostolesBoss.INCREASE_STATS)));
 	}
 	
 	@Override
@@ -39,5 +36,9 @@ public class MostolesBoss extends Enemy implements Boss{
 			super.characterStats.setHP(super.characterStats.getMaxHP());
 			super.currentState = super.baseState;
 		}
+	}
+	@Override
+	public void increaseStats() {
+		super.characterStats.increaseStats(MostolesBoss.INCREASE_STATS*MostolesAbstractFactory.INCREASE_STATS);
 	}
 }

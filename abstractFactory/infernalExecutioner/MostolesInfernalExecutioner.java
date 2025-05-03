@@ -15,9 +15,9 @@ public class MostolesInfernalExecutioner extends Enemy implements InfernalExecut
 	}
 	public MostolesInfernalExecutioner(CharacterStats characterStats){
 		super(characterStats, new OffensiveBehaviorStrategy());
+		this.increaseStats();
 		super.physicalAttackAction = new SkillBoostComponentDecorator(super.physicalAttackAction, MostolesInfernalExecutioner.boostIncrease++);
 		super.physicalAttackAction = new InflictSlowdownComponentDecorator(super.physicalAttackAction, MostolesInfernalExecutioner.boostIncrease++);
-		super.characterStats.setStrength(((int)(super.characterStats.getStrength()*MostolesAbstractFactory.INCREASE_STATS)));
 	}
 	
 	@Override
@@ -26,7 +26,11 @@ public class MostolesInfernalExecutioner extends Enemy implements InfernalExecut
 	}
 	@Override
 	public void increaseMagicDefense() {
-		super.characterStats.setMagicDef(super.characterStats.getMagicDef()+10);
+		super.characterStats.setMagicDef((int)(super.characterStats.getMagicDef()*1.1));
+	}
+	@Override
+	public void increaseStats() {
+		super.characterStats.increaseStats(MostolesAbstractFactory.INCREASE_STATS);
 	}
 }
 

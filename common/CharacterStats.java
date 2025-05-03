@@ -38,6 +38,19 @@ public class CharacterStats {
 		this.guardingPercentage =0;
 		this.canAttack = true;
 	}
+	
+	public void increaseStats(Double increasement) {
+		this.strength = (int)(this.strength*increasement);
+		this.magic = (int)(this.magic*increasement);
+		this.physicalDef = (int)(this.physicalDef*increasement);
+		this.magicDef = (int)(this.magicDef*increasement);
+		this.speed = (int)(this.speed*increasement);
+		this.MaxHP = (int)(this.MaxHP*increasement);
+		this.MaxMP = (int)(this.MaxMP*increasement);
+		this.HP = this.MaxHP;
+		this.MP = this.MaxMP;
+	}
+	
 	public String getName() { return this.name; }
 	public void setName(String name) { this.name = name;}
 	

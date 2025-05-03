@@ -10,7 +10,7 @@ import com.utad.ds.proyectoFinal.abstractFactory.ironcladBrute.IroncladBrute;
 import com.utad.ds.proyectoFinal.abstractFactory.ironcladBrute.MagicForestIroncladBrute;
 
 public class MagicForestAbstractFactory implements EnemyAbstractFactory{
-	public static final Double INCREASE_STATS = 1.2;
+	public static Double INCREASE_STATS = 1.2;
 	@Override
 	public ArcaneAbomination createArcaneAbomination() {
 		return new MagicForestArcaneAbomination();

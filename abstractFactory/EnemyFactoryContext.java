@@ -47,4 +47,10 @@ public class EnemyFactoryContext {
 		}
 		return randomEnemy;
 	}
+	public void increaseStats(Integer run) {
+		MeadowAbstractFactory.INCREASE_STATS *= (2*run);
+		MagicForestAbstractFactory.INCREASE_STATS *= (2*run);
+		LandOfDragonsAbstractFactory.INCREASE_STATS *= (2*run);
+		MostolesAbstractFactory.INCREASE_STATS *= (2*run);
+	}
 }

@@ -33,20 +33,9 @@ public class Player extends GameCharacter {
 			this.performAction(target);
 		}
 	}
+	@Override
 	public void increaseStats() {
-		super.characterStats.setStrength((int)(super.characterStats.getStrength()*Player.INCREASE_STATS_PORCENTAGE));
-		super.characterStats.setMagic((int)(super.characterStats.getMagic()*Player.INCREASE_STATS_PORCENTAGE));
-		super.characterStats.setPhysicalDef((int)(super.characterStats.getPhysicalDef()*Player.INCREASE_STATS_PORCENTAGE));
-		super.characterStats.setMagicDef((int)(super.characterStats.getMagicDef()*Player.INCREASE_STATS_PORCENTAGE));
-		super.characterStats.setSpeed((int)(super.characterStats.getSpeed()*Player.INCREASE_STATS_PORCENTAGE));
-		super.characterStats.setMaxHP((int)(super.characterStats.getMaxHP()*Player.INCREASE_STATS_PORCENTAGE));
-		super.characterStats.setMaxMP((int)(super.characterStats.getMaxMP()*Player.INCREASE_STATS_PORCENTAGE));
-	}
-	public void restoreMP() {
-		super.characterStats.setMP(super.characterStats.getMaxMP());
-	}
-	public void restoreHP() {
-		super.characterStats.setHP(super.characterStats.getMaxHP());
+		super.characterStats.increaseStats(Player.INCREASE_STATS_PORCENTAGE);
 	}
 	@Override
 	public String toString() {

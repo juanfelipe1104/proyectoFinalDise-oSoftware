@@ -14,9 +14,8 @@ public class MagicForestIroncladBrute extends Enemy implements IroncladBrute{
 	}
 	public MagicForestIroncladBrute(CharacterStats characterStats){
 		super(characterStats, new DefensiveBehaviorStrategy());
+		this.increaseStats();
 		super.guardAction = new SkillBoostComponentDecorator(super.guardAction, MagicForestIroncladBrute.boostIncrease++);
-		super.characterStats.setMagicDef((int)(super.characterStats.getMagicDef()*MagicForestAbstractFactory.INCREASE_STATS));
-		super.characterStats.setPhysicalDef((int)(super.characterStats.getPhysicalDef()*MagicForestAbstractFactory.INCREASE_STATS));
 	}
 	
 	@Override
@@ -25,6 +24,10 @@ public class MagicForestIroncladBrute extends Enemy implements IroncladBrute{
 	}
 	@Override
 	public void increasePhysicalDefense() {
-		super.characterStats.setPhysicalDef((int)(super.characterStats.getPhysicalDef()*MagicForestAbstractFactory.INCREASE_STATS));
+		super.characterStats.setPhysicalDef((int)(super.characterStats.getPhysicalDef()*1.1));
+	}
+	@Override
+	public void increaseStats() {
+		super.characterStats.increaseStats(MagicForestAbstractFactory.INCREASE_STATS);
 	}
 }

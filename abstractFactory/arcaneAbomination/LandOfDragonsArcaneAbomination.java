@@ -15,10 +15,9 @@ public class LandOfDragonsArcaneAbomination extends Enemy implements ArcaneAbomi
 	}
 	public LandOfDragonsArcaneAbomination(CharacterStats characterStats) {
 		super(characterStats, new MagicOffensiveBehaviorStrategy());
+		this.increaseStats();
 		this.followUpAttack = false;
 		super.magicAttackAction = new InflictParalysisComponentDecorator(super.magicAttackAction,LandOfDragonsArcaneAbomination.boostIncrease++);
-		super.characterStats.setMagic((int)(super.characterStats.getMagic()*LandOfDragonsAbstractFactory.INCREASE_STATS));
-	
 	}
 
 	@Override
@@ -32,5 +31,9 @@ public class LandOfDragonsArcaneAbomination extends Enemy implements ArcaneAbomi
 	@Override
 	public void useSkill(Character opponent) {	
 		this.followUpAttack(opponent);
+	}
+	@Override
+	public void increaseStats() {
+		super.characterStats.increaseStats(LandOfDragonsAbstractFactory.INCREASE_STATS);
 	}
 }

@@ -15,8 +15,6 @@ public class MostolesIroncladBrute extends Enemy implements IroncladBrute{
 	public MostolesIroncladBrute(CharacterStats characterStats){
 		super(characterStats, new DefensiveBehaviorStrategy());
 		super.guardAction = new ReflectDamageComponentDecorator(super.guardAction, MostolesIroncladBrute.boostIncrease++);
-		super.characterStats.setMagicDef((int)(super.characterStats.getMagicDef()*MostolesAbstractFactory.INCREASE_STATS));
-		super.characterStats.setPhysicalDef((int)(super.characterStats.getPhysicalDef()*MostolesAbstractFactory.INCREASE_STATS));
 	}
 
 	@Override
@@ -25,6 +23,10 @@ public class MostolesIroncladBrute extends Enemy implements IroncladBrute{
 	}
 	@Override
 	public void increasePhysicalDefense() {
-		super.characterStats.setPhysicalDef((int)(super.characterStats.getPhysicalDef()*MostolesAbstractFactory.INCREASE_STATS));
+		super.characterStats.setPhysicalDef((int)(super.characterStats.getPhysicalDef()*1.1));
+	}
+	@Override
+	public void increaseStats() {
+		super.characterStats.increaseStats(MostolesAbstractFactory.INCREASE_STATS);
 	}
 }

@@ -10,7 +10,7 @@ import com.utad.ds.proyectoFinal.abstractFactory.ironcladBrute.IroncladBrute;
 import com.utad.ds.proyectoFinal.abstractFactory.ironcladBrute.MostolesIroncladBrute;
 
 public class MostolesAbstractFactory implements EnemyAbstractFactory{
-	public static final Double INCREASE_STATS = 1.4;
+	public static Double INCREASE_STATS = 1.4;
 	@Override
 	public ArcaneAbomination createArcaneAbomination() {
 		return new MostolesArcaneAbomination();

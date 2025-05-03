@@ -11,7 +11,7 @@ public class MeadowInfernalExecutioner extends Enemy implements InfernalExecutio
 	}
 	public MeadowInfernalExecutioner(CharacterStats characterStats){
 		super(characterStats);
-		super.characterStats.setStrength(((int)(super.characterStats.getStrength()*MeadowAbstractFactory.INCREASE_STATS)));
+		this.increaseStats();
 	}
 	
 	@Override
@@ -20,6 +20,10 @@ public class MeadowInfernalExecutioner extends Enemy implements InfernalExecutio
 	}
 	@Override
 	public void increaseMagicDefense() {
-		super.characterStats.setMagicDef(super.characterStats.getMagicDef()+10);
+		super.characterStats.setMagicDef((int)(super.characterStats.getMagicDef()*1.1));
+	}
+	@Override
+	public void increaseStats() {
+		super.characterStats.increaseStats(MeadowAbstractFactory.INCREASE_STATS);
 	}
 }

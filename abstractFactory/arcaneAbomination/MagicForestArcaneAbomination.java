@@ -15,9 +15,9 @@ public class MagicForestArcaneAbomination extends Enemy implements ArcaneAbomina
 	}
 	public MagicForestArcaneAbomination(CharacterStats characterStats) {
 		super(characterStats,new DefensiveBehaviorStrategy());
+		this.increaseStats();
 		this.followUpAttack = false;
 		super.healAction = new SkillBoostComponentDecorator(super.healAction, MagicForestArcaneAbomination.boostIncrease++);
-		super.characterStats.setMagic((int)(super.characterStats.getMagic()*MagicForestAbstractFactory.INCREASE_STATS));
 	}
 	
 	@Override
@@ -31,5 +31,9 @@ public class MagicForestArcaneAbomination extends Enemy implements ArcaneAbomina
 	@Override
 	public void useSkill(Character opponent) {	
 		this.followUpAttack(opponent);
+	}
+	@Override
+	public void increaseStats() {
+		super.characterStats.increaseStats(MagicForestAbstractFactory.INCREASE_STATS);
 	}
 }

@@ -14,9 +14,8 @@ public class LandOfDragonsIroncladBrute extends Enemy implements IroncladBrute{
 	}
 	public LandOfDragonsIroncladBrute(CharacterStats characterStats){
 		super(characterStats, new OffensiveBehaviorStrategy());
+		this.increaseStats();
 		super.physicalAttackAction = new SkillBoostComponentDecorator(super.physicalAttackAction, LandOfDragonsIroncladBrute.boostIncrease++);
-		super.characterStats.setMagicDef((int)(super.characterStats.getMagicDef()*LandOfDragonsAbstractFactory.INCREASE_STATS));
-		super.characterStats.setPhysicalDef((int)(super.characterStats.getPhysicalDef()*LandOfDragonsAbstractFactory.INCREASE_STATS));
 	}
 	
 	@Override
@@ -25,6 +24,10 @@ public class LandOfDragonsIroncladBrute extends Enemy implements IroncladBrute{
 	}
 	@Override
 	public void increasePhysicalDefense() {
-		super.characterStats.setPhysicalDef((int)(super.characterStats.getPhysicalDef()*LandOfDragonsAbstractFactory.INCREASE_STATS));
+		super.characterStats.setPhysicalDef((int)(super.characterStats.getPhysicalDef()*1.1));
+	}
+	@Override
+	public void increaseStats() {
+		super.characterStats.increaseStats(LandOfDragonsAbstractFactory.INCREASE_STATS);
 	}
 }
