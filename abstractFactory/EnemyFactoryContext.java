@@ -9,6 +9,7 @@ import com.utad.ds.proyectoFinal.abstractFactory.ironcladBrute.IroncladBrute;
 import com.utad.ds.proyectoFinal.common.Enemy;
 
 public class EnemyFactoryContext {
+	public static final Double DEFAULT_STATS_MULTIPLIER = 2d;
 	private static EnemyFactoryContext enemyFactoryContext = new EnemyFactoryContext(new MeadowAbstractFactory());
 	public static EnemyFactoryContext getInstance() {
 		return EnemyFactoryContext.enemyFactoryContext;
@@ -48,9 +49,13 @@ public class EnemyFactoryContext {
 		return randomEnemy;
 	}
 	public void increaseStats(Integer run) {
-		MeadowAbstractFactory.INCREASE_STATS *= (2*run);
-		MagicForestAbstractFactory.INCREASE_STATS *= (2*run);
-		LandOfDragonsAbstractFactory.INCREASE_STATS *= (2*run);
-		MostolesAbstractFactory.INCREASE_STATS *= (2*run);
+		Double multiplier = this.increaseStatMultipler(run);
+		MeadowAbstractFactory.INCREASE_STATS *= multiplier;
+		MagicForestAbstractFactory.INCREASE_STATS *= multiplier;
+		LandOfDragonsAbstractFactory.INCREASE_STATS *= multiplier;
+		MostolesAbstractFactory.INCREASE_STATS *= multiplier;
+	}
+	private Double increaseStatMultipler(Integer run) {
+		return EnemyFactoryContext.DEFAULT_STATS_MULTIPLIER*run;
 	}
 }

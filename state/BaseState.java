@@ -1,10 +1,10 @@
 package com.utad.ds.proyectoFinal.state;
 
-import com.utad.ds.proyectoFinal.common.Character;
+import com.utad.ds.proyectoFinal.common.GameCharacter;
 
 public class BaseState implements CharacterState {
-	private Character character;
-	public BaseState(Character character) {
+	private GameCharacter character;
+	public BaseState(GameCharacter character) {
 		this.character = character;
 	}
 	@Override

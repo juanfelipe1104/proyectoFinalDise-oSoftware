@@ -2,11 +2,11 @@ package com.utad.ds.proyectoFinal.state;
 
 import java.util.Random;
 
-import com.utad.ds.proyectoFinal.common.Character;
+import com.utad.ds.proyectoFinal.common.GameCharacter;
 
 public class ParalysisState implements CharacterState {
-	private Character character;
-	public ParalysisState(Character character) {
+	private GameCharacter character;
+	public ParalysisState(GameCharacter character) {
 		this.character = character;
 	}
 	@Override

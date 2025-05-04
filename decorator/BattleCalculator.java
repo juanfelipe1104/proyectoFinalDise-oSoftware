@@ -30,7 +30,7 @@ public class BattleCalculator {
 		return damage;
 	}
 	//Decide si un golpe fisico es critico o no
-	public Boolean decideCrit(){
+	private Boolean decideCrit(){
 		Boolean crit = false;
 		Random random = new Random();
 		Integer numRandom = random.nextInt(0, 99)+1;

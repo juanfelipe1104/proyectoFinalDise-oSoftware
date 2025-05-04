@@ -1,10 +1,10 @@
 package com.utad.ds.proyectoFinal.state;
 
-import com.utad.ds.proyectoFinal.common.Character;
+import com.utad.ds.proyectoFinal.common.GameCharacter;
 
 public class DeadState implements CharacterState {
-	private Character character;
-	public DeadState(Character character) {
+	private GameCharacter character;
+	public DeadState(GameCharacter character) {
 		this.character = character;
 	}
 	@Override

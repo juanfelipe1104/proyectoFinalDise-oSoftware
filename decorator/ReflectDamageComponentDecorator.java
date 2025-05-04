@@ -20,7 +20,7 @@ public class ReflectDamageComponentDecorator extends AbstractActionComponentDeco
 		return super.getActionComponent().getDescription() + " con mejora de reflejar daño de nivel " + this.level;
 	}
 	//Decide si se reflejara el daño o no aleatoriamente. Cuanto mas nivel, mas probabilidades hay
-	public void decideReflect(Character performer){
+	private void decideReflect(Character performer){
 		CharacterStats performerStats = performer.getCharacterStats();
 		Integer numRandom = 0;
 		Integer chance = ReflectDamageComponentDecorator.BASE_REFLECT_CHANCE + (super.level-1)*10;

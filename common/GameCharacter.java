@@ -45,7 +45,6 @@ public abstract class GameCharacter implements Character{
 		this.guardAction = new BaseGuardAction();
 		this.currentAction = this.physicalAttackAction;
 	}
-	@Override
 	public void performEffect() {
 		this.currentState.performEffect(); //Delegación por composición
 	}
@@ -83,20 +82,12 @@ public abstract class GameCharacter implements Character{
 	}
 	@Override
 	public CharacterStats getCharacterStats() { return this.characterStats; }
-	@Override
 	public void setCurrentState(CharacterState characterState) { this.currentState = characterState;}
-	@Override
 	public BaseState getBaseState() { return this.baseState; }
-	@Override
 	public BleedingState getBleedingState() { return this.bleedingState; }
-	@Override
 	public ParalysisState getParalysisState() { return this.paralysisState; }
-	@Override
 	public SlowDownState getSlowDownState() { return this.slowDownState; }
-	@Override
 	public DeadState getDeadState() { return this.deadState; }
-	@Override
-	public CharacterState getCurrentState() { return this.currentState; }
 	@Override
 	public ActionComponent getPhysicalAttackAction() { return this.physicalAttackAction; }
 	@Override

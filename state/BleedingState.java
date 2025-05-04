@@ -1,16 +1,20 @@
 package com.utad.ds.proyectoFinal.state;
 
-import com.utad.ds.proyectoFinal.common.Character;
+import com.utad.ds.proyectoFinal.common.GameCharacter;
 
 public class BleedingState implements CharacterState{
-	private Character character;
-	public BleedingState(Character character) {
+	private GameCharacter character;
+	public BleedingState(GameCharacter character) {
 		this.character = character;
 	}
 	@Override
 	public void performEffect() {
 		this.character.getCharacterStats().setHP((int)(this.character.getCharacterStats().getHP() * 0.95));
 		System.out.println(this.character.getCharacterStats().getName() + " sufre de sangrado");
+		if(this.character.getCharacterStats().getHP() <= 0) {
+			this.character.getCharacterStats().setHP(1);
+			System.out.println(this.character.getCharacterStats().getName() + "no puede morir de sangrado y queda a 1HP");
+		}
 	}
 	@Override
 	public void removeSideEffect() {

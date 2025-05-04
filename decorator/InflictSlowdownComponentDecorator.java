@@ -19,7 +19,7 @@ public class InflictSlowdownComponentDecorator extends AbstractActionComponentDe
 		return super.getActionComponent().getDescription() + " con capacidad de ralentizar de nivel " + this.level;
 	}
 	//Decidimos si se inflige el estado o no aleatoriamente
-	public void decideInflict(Character target){
+	private void decideInflict(Character target){
 		Integer numRandom = 0;
 		Integer chance = InflictSlowdownComponentDecorator.BASE_INFLICT_CHANCE + (super.level-1)*10;
 		if(chance > InflictSlowdownComponentDecorator.MAX_INFLICT_CHANCE){

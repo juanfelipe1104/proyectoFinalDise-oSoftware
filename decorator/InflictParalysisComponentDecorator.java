@@ -18,7 +18,7 @@ public class InflictParalysisComponentDecorator extends AbstractActionComponentD
 		return super.getActionComponent().getDescription() + " con capacidad de paralizar de nivel " + this.level;
 	}
 	//Decidimos si se inflige el estado o no aleatoriamente
-	public void decideInflict(Character target){
+	private void decideInflict(Character target){
 		Integer numRandom = 0;
 		Integer chance = InflictParalysisComponentDecorator.BASE_INFLICT_CHANCE + (super.level-1)*10;
 		if(chance > InflictParalysisComponentDecorator.MAX_INFLICT_CHANCE){

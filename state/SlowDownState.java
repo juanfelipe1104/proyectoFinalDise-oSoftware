@@ -1,11 +1,11 @@
 package com.utad.ds.proyectoFinal.state;
 
-import com.utad.ds.proyectoFinal.common.Character;
+import com.utad.ds.proyectoFinal.common.GameCharacter;
 
 public class SlowDownState implements CharacterState {
 	public static final Integer BASE_SPEED = 30;
-	private Character character;
-	public SlowDownState(Character character) {
+	private GameCharacter character;
+	public SlowDownState(GameCharacter character) {
 		this.character = character;
 	}
 	@Override
