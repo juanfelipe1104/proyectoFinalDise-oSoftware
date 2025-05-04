@@ -9,7 +9,6 @@ import com.utad.ds.proyectoFinal.abstractFactory.LandOfDragonsAbstractFactory;
 import com.utad.ds.proyectoFinal.abstractFactory.MagicForestAbstractFactory;
 import com.utad.ds.proyectoFinal.abstractFactory.MeadowAbstractFactory;
 import com.utad.ds.proyectoFinal.abstractFactory.MostolesAbstractFactory;
-import com.utad.ds.proyectoFinal.abstractFactory.boss.Boss;
 import com.utad.ds.proyectoFinal.abstractFactory.boss.MostolesBoss;
 import com.utad.ds.proyectoFinal.common.Character;
 import com.utad.ds.proyectoFinal.common.Enemy;
@@ -91,88 +90,6 @@ public class GameControllerFacade implements GameController{
 			this.checkVictory();
 		}
 	}
-	private void nextTurn() {
-		if(this.enemy.isDead()) {
-			((Player)this.player).increaseStats();
-			this.itemDisplay = new ItemDisplay((Player)this.player);
-			this.itemDisplay.selectUpgrade();
-			this.createEnemy();
-		}
-	}
-	private void checkVictory() {
-		if(this.player.isDead()){
-			System.out.println("Perdiste, buena partida");
-		}
-		else if(this.victory){
-			System.out.println("Ganaste. Tienes dos opciones:");
-			this.chooseVictoryOption(GameControllerFacade.menuSelection(VICTORY_OPTIONS)); 
-		}
-	}
-	private void chooseVictoryOption(Integer option){
-		switch(option){
-			case 0:
-				System.out.println("Gracias por jugar");
-				this.endRun = true;
-			break;
-			case 1:
-				System.out.println("Empieza una nueva partida");
-				this.startNewRun();
-			break;
-		}	
-	}
-	private void startNewRun() {
-		this.victory = false;
-		this.roundNumber = 0;
-		this.worldNumber = 1;
-		this.runNumber++;
-		this.changeWorld();
-		this.enemyFactoryContext.increaseStats(this.runNumber);
-		this.enemy = this.enemyFactoryContext.createRandomEnemy();
-	}
-	private void createEnemy(){
-		this.roundNumber++;
-		if(((Enemy)this.enemy).isBoss()) {
-			if(this.enemy instanceof MostolesBoss) {
-				this.victory = true;
-			}
-			else {
-				this.worldNumber++;
-				this.changeWorld();
-			}
-		}
-		if(!this.victory) {
-			if(this.roundNumber.equals(4)){
-				this.enemy = (Enemy) this.enemyFactoryContext.createBoss();
-				System.out.println("Ha aparecido el jefe " + this.enemy.getCharacterStats().getName());
-				this.roundNumber = 0;
-			}
-			else{
-				this.enemy = this.enemyFactoryContext.createRandomEnemy();
-				System.out.println("Se ha generado un nuevo enemigo");		
-			}
-		}
-	}
-	private void changeWorld() {
-		switch(this.worldNumber) {
-		case 1:
-			this.enemyFactoryContext.setEnemyAbstractFactory(new MeadowAbstractFactory());
-			System.out.println("Has entrado en la pradera");
-		break;
-		case 2:
-			this.enemyFactoryContext.setEnemyAbstractFactory(new MagicForestAbstractFactory());
-			System.out.println("Has entrado al bosque magico");
-		break;
-		case 3:
-			this.enemyFactoryContext.setEnemyAbstractFactory(new LandOfDragonsAbstractFactory());
-			System.out.println("Has entrado a la tierra de los dragones");
-		break;
-		case 4:
-			this.enemyFactoryContext.setEnemyAbstractFactory(new MostolesAbstractFactory());
-			System.out.println("Has entrado en Mostoles. Revisa tus bolsillos.");
-			this.worldNumber = 1;
-		break;
-		}
-	}
 	private void choosePlayerAction(Integer option) {
 		switch(option) {
 		case 0:
@@ -234,5 +151,87 @@ public class GameControllerFacade implements GameController{
 				((Enemy)this.enemy).useSkill(this.player);
 			}
 		}
+	}
+	private void nextTurn() {
+		if(this.enemy.isDead()) {
+			((Player)this.player).increaseStats();
+			this.itemDisplay = new ItemDisplay((Player)this.player);
+			this.itemDisplay.selectUpgrade();
+			this.createEnemy();
+		}
+	}
+	private void createEnemy(){
+		this.roundNumber++;
+		if(((Enemy)this.enemy).isBoss()) {
+			if(this.enemy instanceof MostolesBoss) {
+				this.victory = true;
+			}
+			else {
+				this.worldNumber++;
+				this.changeWorld();
+			}
+		}
+		if(!this.victory) {
+			if(this.roundNumber < 4){
+				this.enemy = this.enemyFactoryContext.createRandomEnemy();
+				System.out.println("Se ha generado un nuevo enemigo");
+			}
+			else{
+				this.enemy = (Enemy) this.enemyFactoryContext.createBoss();
+				System.out.println("Ha aparecido el jefe " + this.enemy.getCharacterStats().getName());
+				this.roundNumber = 0;		
+			}
+		}
+	}
+	private void changeWorld() {
+		switch(this.worldNumber) {
+		case 1:
+			this.enemyFactoryContext.setEnemyAbstractFactory(new MeadowAbstractFactory());
+			System.out.println("Has entrado en la pradera");
+		break;
+		case 2:
+			this.enemyFactoryContext.setEnemyAbstractFactory(new MagicForestAbstractFactory());
+			System.out.println("Has entrado al bosque magico");
+		break;
+		case 3:
+			this.enemyFactoryContext.setEnemyAbstractFactory(new LandOfDragonsAbstractFactory());
+			System.out.println("Has entrado a la tierra de los dragones");
+		break;
+		case 4:
+			this.enemyFactoryContext.setEnemyAbstractFactory(new MostolesAbstractFactory());
+			System.out.println("Has entrado en Mostoles. Revisa tus bolsillos.");
+			this.worldNumber = 1;
+		break;
+		}
+	}
+	private void checkVictory() {
+		if(this.player.isDead()){
+			System.out.println("Perdiste, buena partida");
+		}
+		else if(this.victory){
+			System.out.println("Ganaste. Tienes dos opciones:");
+			this.chooseVictoryOption(GameControllerFacade.menuSelection(VICTORY_OPTIONS)); 
+		}
+	}
+	private void chooseVictoryOption(Integer option){
+		switch(option){
+			case 0:
+				System.out.println("Gracias por jugar");
+				this.endRun = true;
+			break;
+			case 1:
+				System.out.println("Empieza una nueva partida");
+				this.startNewRun();
+			break;
+		}	
+	}
+	private void startNewRun() {
+		this.victory = false;
+		this.roundNumber = 0;
+		this.worldNumber = 1;
+		this.runNumber++;
+		this.changeWorld();
+		this.enemyFactoryContext.increaseStats(this.runNumber);
+		this.enemy = this.enemyFactoryContext.createRandomEnemy();
 	}
 }
