@@ -6,14 +6,18 @@ import com.utad.ds.proyectoFinal.strategy.BalancedBehaviorStrategy;
 import com.utad.ds.proyectoFinal.strategy.EnemyBehaviorStrategy;
 
 public abstract class Enemy extends GameCharacter{
+	public static final Double DEFAULT_SKILL_BOOST = 1.1;
+	public static final Integer MAX_SKILL_USES = 5;
 	public static final Integer MP_COST = 50;
 	protected EnemyBehaviorStrategy enemyBehaviorStrategy;
+	protected Integer skillUses;
 	public Enemy(CharacterStats characterStats) {
 		this(characterStats, new BalancedBehaviorStrategy());
 	}
 	public Enemy(CharacterStats characterStats, EnemyBehaviorStrategy enemyBehaviorStrategy) {
 		super(characterStats);
 		this.enemyBehaviorStrategy = enemyBehaviorStrategy;
+		this.skillUses = 0;
 	}
 	//Template method
 	public void playTurn(Character target) {

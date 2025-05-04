@@ -1,26 +1,15 @@
 package com.utad.ds.proyectoFinal.abstractFactory.infernalExecutioner;
 
 import com.utad.ds.proyectoFinal.abstractFactory.MeadowAbstractFactory;
-import com.utad.ds.proyectoFinal.common.Character;
 import com.utad.ds.proyectoFinal.common.CharacterStats;
-import com.utad.ds.proyectoFinal.common.Enemy;
 
-public class MeadowInfernalExecutioner extends Enemy implements InfernalExecutioner{
+public class MeadowInfernalExecutioner extends AbstractInfernalExecutioner{
 	public MeadowInfernalExecutioner(){
 		this(new CharacterStats("Bicho palo",30,0,20,10,10,50,0));
 	}
 	public MeadowInfernalExecutioner(CharacterStats characterStats){
 		super(characterStats);
 		this.increaseStats();
-	}
-	
-	@Override
-	public void useSkill(Character target) {	
-		this.increaseMagicDefense();
-	}
-	@Override
-	public void increaseMagicDefense() {
-		super.characterStats.setMagicDef((int)(super.characterStats.getMagicDef()*1.1));
 	}
 	@Override
 	public void increaseStats() {
