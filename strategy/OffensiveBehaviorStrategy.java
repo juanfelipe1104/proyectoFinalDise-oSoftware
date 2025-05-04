@@ -1,7 +1,5 @@
 package com.utad.ds.proyectoFinal.strategy;
 
-import java.util.Random;
-
 import com.utad.ds.proyectoFinal.common.ActionException;
 import com.utad.ds.proyectoFinal.common.Character;
 
