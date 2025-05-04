@@ -12,8 +12,7 @@ public class BleedingState implements CharacterState{
 		this.character.getCharacterStats().setHP((int)(this.character.getCharacterStats().getHP() * 0.95));
 		System.out.println(this.character.getCharacterStats().getName() + " sufre de sangrado");
 		if(this.character.getCharacterStats().getHP() <= 0) {
-			this.character.getCharacterStats().setHP(1);
-			System.out.println(this.character.getCharacterStats().getName() + "no puede morir de sangrado y queda a 1HP");
+			this.killCharacter();
 		}
 	}
 	@Override
