@@ -32,6 +32,7 @@ public abstract class Enemy extends GameCharacter{
 	}
 	public void performAction(Character target) {
 		try {
+			//Delegacion por agregacion
 			this.enemyBehaviorStrategy.performAction(this, target);
 		}catch(ActionException actionException) {
 			System.out.println(actionException.getMessage());
