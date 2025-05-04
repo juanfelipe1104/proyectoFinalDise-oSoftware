@@ -4,7 +4,6 @@ import java.util.Random;
 
 import com.utad.ds.proyectoFinal.common.ActionException;
 import com.utad.ds.proyectoFinal.common.Character;
-import com.utad.ds.proyectoFinal.common.Enemy;
 
 public class DefensiveBehaviorStrategy implements EnemyBehaviorStrategy{
 	//20% atacar, 10% ataque magico, 20% curacion, 50% proteccion
@@ -17,7 +16,7 @@ public class DefensiveBehaviorStrategy implements EnemyBehaviorStrategy{
 		}	
 		//Ataque magico
 		else if(numRandom > 20 && numRandom <=30){
-			if(performer.getCharacterStats().getMP() >= Enemy.MP_COST){
+			if(performer.hasEnoughMP()){
 				performer.getMagicAttackAction().performActionFirst(performer, target);
 			}	
 			//Si no tiene MP, en su lugar hace un ataque fisico
@@ -27,7 +26,7 @@ public class DefensiveBehaviorStrategy implements EnemyBehaviorStrategy{
 		}	
 		//Curarse
 		else if(numRandom > 30 && numRandom <=50){
-			if(performer.getCharacterStats().getMP() >= Enemy.MP_COST){
+			if(performer.hasEnoughMP()){
 				performer.getHealAction().performActionFirst(performer, target);
 			}	
 			//Si no tiene MP, en su lugar se protege
