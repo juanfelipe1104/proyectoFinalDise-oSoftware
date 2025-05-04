@@ -157,10 +157,10 @@ public class GameControllerFacade implements GameController{
 			((Player)this.player).increaseStats();
 			this.itemDisplay = new ItemDisplay((Player)this.player);
 			this.itemDisplay.selectUpgrade();
-			this.createEnemy();
+			this.createNextEnemy();
 		}
 	}
-	private void createEnemy(){
+	private void createNextEnemy(){
 		this.roundNumber++;
 		if(((Enemy)this.enemy).isBoss()) {
 			if(this.enemy instanceof MostolesBoss) {
