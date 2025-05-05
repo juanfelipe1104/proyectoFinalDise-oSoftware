@@ -12,7 +12,6 @@ public abstract class AbstractInfernalExecutioner extends Enemy implements Infer
 	}
 	public AbstractInfernalExecutioner(CharacterStats characterStats, EnemyBehaviorStrategy enemyBehaviorStrategy) {
 		super(characterStats, enemyBehaviorStrategy);
-		this.increaseStats();
 	}
 	@Override
 	public void useSkill(Character target) {	

@@ -16,6 +16,7 @@ public abstract class Enemy extends GameCharacter{
 	}
 	public Enemy(CharacterStats characterStats, EnemyBehaviorStrategy enemyBehaviorStrategy) {
 		super(characterStats);
+		this.increaseStats();
 		this.enemyBehaviorStrategy = enemyBehaviorStrategy;
 		this.skillUses = 0;
 	}

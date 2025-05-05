@@ -14,7 +14,6 @@ public abstract class AbstractArcaneAbomination extends Enemy implements ArcaneA
 	public AbstractArcaneAbomination(CharacterStats characterStats, EnemyBehaviorStrategy enemyBehaviorStrategy) {
 		super(characterStats, enemyBehaviorStrategy);
 		this.followUpAttack = false;
-		this.increaseStats();
 	}
 	@Override
 	public void followUpAttack(Character opponent) {	

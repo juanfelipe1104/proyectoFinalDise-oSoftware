@@ -12,7 +12,6 @@ public abstract class AbstractIronCladBrute extends Enemy implements IroncladBru
 	}
 	public AbstractIronCladBrute(CharacterStats characterStats, EnemyBehaviorStrategy enemyBehaviorStrategy) {
 		super(characterStats, enemyBehaviorStrategy);
-		this.increaseStats();
 	}
 	@Override
 	public void useSkill(Character target) {	
