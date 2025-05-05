@@ -14,6 +14,7 @@ public abstract class AbstractBoss extends Enemy implements Boss {
 	public AbstractBoss(CharacterStats characterStats, EnemyBehaviorStrategy enemyBehaviorStrategy) {
 		super(characterStats, enemyBehaviorStrategy);
 		this.revive = false;
+		this.increaseStats();
 	}
 	@Override
 	public void useSkill(Character target) {	
