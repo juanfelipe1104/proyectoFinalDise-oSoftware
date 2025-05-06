@@ -12,7 +12,6 @@ public class MagicForestInfernalExecutioner extends AbstractInfernalExecutioner{
 	}
 	public MagicForestInfernalExecutioner(CharacterStats characterStats){
 		super(characterStats, new DefensiveBehaviorStrategy());
-		this.increaseStats();
 		super.physicalAttackAction = new InflictParalysisComponentDecorator(super.physicalAttackAction, MagicForestInfernalExecutioner.boostIncrease++);
 	}
 	@Override

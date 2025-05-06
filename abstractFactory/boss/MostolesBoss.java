@@ -12,7 +12,6 @@ public class MostolesBoss extends AbstractBoss{
 	}
 	public MostolesBoss(CharacterStats characterStats){
 		super(characterStats);
-		this.increaseStats();
 		super.magicAttackAction = new SkillBoostComponentDecorator(super.magicAttackAction,MostolesBoss.boostIncrease++);
 		super.physicalAttackAction = new SkillBoostComponentDecorator(super.physicalAttackAction, MostolesBoss.boostIncrease++);
 		super.healAction = new SkillBoostComponentDecorator(super.healAction, MostolesBoss.boostIncrease++);

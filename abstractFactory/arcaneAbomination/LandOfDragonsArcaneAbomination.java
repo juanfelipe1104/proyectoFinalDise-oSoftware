@@ -12,7 +12,6 @@ public class LandOfDragonsArcaneAbomination extends AbstractArcaneAbomination {
 	}
 	public LandOfDragonsArcaneAbomination(CharacterStats characterStats) {
 		super(characterStats, new MagicOffensiveBehaviorStrategy());
-		this.increaseStats();
 		super.magicAttackAction = new InflictParalysisComponentDecorator(super.magicAttackAction,LandOfDragonsArcaneAbomination.boostIncrease++);
 	}
 	@Override

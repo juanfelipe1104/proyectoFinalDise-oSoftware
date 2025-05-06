@@ -13,7 +13,6 @@ public class MostolesInfernalExecutioner extends AbstractInfernalExecutioner{
 	}
 	public MostolesInfernalExecutioner(CharacterStats characterStats){
 		super(characterStats, new OffensiveBehaviorStrategy());
-		this.increaseStats();
 		super.physicalAttackAction = new SkillBoostComponentDecorator(super.physicalAttackAction, MostolesInfernalExecutioner.boostIncrease++);
 		super.physicalAttackAction = new InflictSlowdownComponentDecorator(super.physicalAttackAction, MostolesInfernalExecutioner.boostIncrease++);
 	}
