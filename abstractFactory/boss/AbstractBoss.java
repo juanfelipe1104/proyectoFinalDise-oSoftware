@@ -7,7 +7,7 @@ import com.utad.ds.proyectoFinal.strategy.BalancedBehaviorStrategy;
 import com.utad.ds.proyectoFinal.strategy.EnemyBehaviorStrategy;
 
 public abstract class AbstractBoss extends Enemy implements Boss {
-	private Boolean revive;
+	protected Boolean revive;
 	public AbstractBoss(CharacterStats characterStats) {
 		this(characterStats, new BalancedBehaviorStrategy());
 	}

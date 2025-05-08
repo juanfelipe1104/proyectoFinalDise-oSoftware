@@ -7,7 +7,7 @@ import com.utad.ds.proyectoFinal.strategy.BalancedBehaviorStrategy;
 import com.utad.ds.proyectoFinal.strategy.EnemyBehaviorStrategy;
 
 public abstract class AbstractArcaneAbomination extends Enemy implements ArcaneAbomination {
-	private Boolean followUpAttack;
+	protected Boolean followUpAttack;
 	public AbstractArcaneAbomination(CharacterStats characterStats) {
 		this(characterStats, new BalancedBehaviorStrategy());
 	}

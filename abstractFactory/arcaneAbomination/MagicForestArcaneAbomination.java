@@ -12,6 +12,7 @@ public class MagicForestArcaneAbomination extends AbstractArcaneAbomination{
 	}
 	public MagicForestArcaneAbomination(CharacterStats characterStats) {
 		super(characterStats,new DefensiveBehaviorStrategy());
+		this.increaseStats();
 		super.healAction = new SkillBoostComponentDecorator(super.healAction, MagicForestArcaneAbomination.boostIncrease++);
 	}
 	@Override

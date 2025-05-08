@@ -491,7 +491,7 @@
         <mxCell id="I6YxR-oMICN3YXVHMcP6-13" value="&amp;lt;&amp;lt;AbstractBoss&amp;gt;&amp;gt;" style="swimlane;fontStyle=0;childLayout=stackLayout;horizontal=1;startSize=26;fillColor=none;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
           <mxGeometry x="-803" y="250" width="400" height="80" as="geometry" />
         </mxCell>
-        <mxCell id="I6YxR-oMICN3YXVHMcP6-14" value="-revive: Boolean&lt;div&gt;+&lt;span style=&quot;text-align: center;&quot;&gt;AbstractBoss&lt;/span&gt;(CharacterStats)&lt;/div&gt;&lt;div&gt;&lt;div&gt;+&lt;span style=&quot;text-align: center;&quot;&gt;AbstractBoss&lt;/span&gt;(CharacterStats,EnemyBehaviorStrategy)&lt;/div&gt;&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" vertex="1" parent="I6YxR-oMICN3YXVHMcP6-13">
+        <mxCell id="I6YxR-oMICN3YXVHMcP6-14" value="#revive: Boolean&lt;div&gt;+&lt;span style=&quot;text-align: center;&quot;&gt;AbstractBoss&lt;/span&gt;(CharacterStats)&lt;/div&gt;&lt;div&gt;&lt;div&gt;+&lt;span style=&quot;text-align: center;&quot;&gt;AbstractBoss&lt;/span&gt;(CharacterStats,EnemyBehaviorStrategy)&lt;/div&gt;&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" vertex="1" parent="I6YxR-oMICN3YXVHMcP6-13">
           <mxGeometry y="26" width="400" height="54" as="geometry" />
         </mxCell>
         <mxCell id="I6YxR-oMICN3YXVHMcP6-16" value="&amp;lt;&amp;lt;AbstractInfernalExecutioner&amp;gt;&amp;gt;" style="swimlane;fontStyle=0;childLayout=stackLayout;horizontal=1;startSize=26;fillColor=none;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
@@ -512,7 +512,7 @@
             <mxPoint x="-370" y="360" as="targetPoint" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="I6YxR-oMICN3YXVHMcP6-6" value="-followUpAttack : Boolean&lt;div&gt;+AbstractArcaneAbomination(CharacterStats)&lt;/div&gt;&lt;div&gt;&lt;div&gt;+AbstractArcaneAbomination(CharacterStats,EnemyBehaviorStrategy)&lt;/div&gt;&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+        <mxCell id="I6YxR-oMICN3YXVHMcP6-6" value="#followUpAttack : Boolean&lt;div&gt;+AbstractArcaneAbomination(CharacterStats)&lt;/div&gt;&lt;div&gt;&lt;div&gt;+AbstractArcaneAbomination(CharacterStats,EnemyBehaviorStrategy)&lt;/div&gt;&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" vertex="1" parent="1">
           <mxGeometry x="-1273" y="276" width="400" height="54" as="geometry" />
         </mxCell>
         <mxCell id="I6YxR-oMICN3YXVHMcP6-30" value="" style="endArrow=none;html=1;endSize=12;startArrow=none;startSize=14;startFill=0;edgeStyle=orthogonalEdgeStyle;align=left;verticalAlign=bottom;rounded=0;fontFamily=Helvetica;fontSize=12;fontColor=default;" edge="1" parent="1">
@@ -715,6 +715,7 @@
             <Array as="points">
               <mxPoint x="393" y="-42" />
             </Array>
+            <mxPoint as="offset" />
           </mxGeometry>
         </mxCell>
       </root>

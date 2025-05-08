@@ -15,6 +15,7 @@ public class EnemyFactoryContext {
 		return EnemyFactoryContext.enemyFactoryContext;
 	}
 	private EnemyAbstractFactory enemyAbstractFactory;
+	
 	private EnemyFactoryContext(EnemyAbstractFactory enemyAbstractFactory) {
 		this.enemyAbstractFactory = enemyAbstractFactory;
 	}

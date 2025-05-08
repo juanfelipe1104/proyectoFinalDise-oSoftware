@@ -12,6 +12,7 @@ public class LandOfDragonsInfernalExecutioner extends AbstractInfernalExecutione
 	}
 	public LandOfDragonsInfernalExecutioner(CharacterStats characterStats){
 		super(characterStats, new OffensiveBehaviorStrategy());
+		this.increaseStats();
 		super.physicalAttackAction = new AbsorbDamageComponentDecorator(super.physicalAttackAction, LandOfDragonsInfernalExecutioner.boostIncrease++);
 	}
 	@Override

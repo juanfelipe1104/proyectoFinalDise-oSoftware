@@ -12,6 +12,7 @@ public class LandOfDragonsIroncladBrute extends AbstractIronCladBrute{
 	}
 	public LandOfDragonsIroncladBrute(CharacterStats characterStats){
 		super(characterStats, new OffensiveBehaviorStrategy());
+		this.increaseStats();
 		super.physicalAttackAction = new SkillBoostComponentDecorator(super.physicalAttackAction, LandOfDragonsIroncladBrute.boostIncrease++);
 	}
 	@Override

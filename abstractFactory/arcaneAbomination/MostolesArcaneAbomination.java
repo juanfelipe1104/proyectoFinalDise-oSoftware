@@ -12,6 +12,7 @@ public class MostolesArcaneAbomination extends AbstractArcaneAbomination{
 	}
 	public MostolesArcaneAbomination(CharacterStats characterStats) {
 		super(characterStats, new MagicOffensiveBehaviorStrategy());
+		this.increaseStats();
 		super.magicAttackAction = new SkillBoostComponentDecorator(super.magicAttackAction, MostolesArcaneAbomination.boostIncrease++);
 	}	
 	@Override

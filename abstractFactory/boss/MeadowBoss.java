@@ -10,6 +10,7 @@ public class MeadowBoss extends AbstractBoss{
 	}
 	public MeadowBoss(CharacterStats characterStats){
 		super(characterStats);
+		this.increaseStats();
 	}
 	@Override
 	public void increaseStats() {

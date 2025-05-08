@@ -9,6 +9,7 @@ public class MeadowInfernalExecutioner extends AbstractInfernalExecutioner{
 	}
 	public MeadowInfernalExecutioner(CharacterStats characterStats){
 		super(characterStats);
+		this.increaseStats();
 	}
 	@Override
 	public void increaseStats() {

@@ -12,6 +12,7 @@ public class MostolesIroncladBrute extends AbstractIronCladBrute{
 	}
 	public MostolesIroncladBrute(CharacterStats characterStats){
 		super(characterStats, new DefensiveBehaviorStrategy());
+		this.increaseStats();
 		super.guardAction = new ReflectDamageComponentDecorator(super.guardAction, MostolesIroncladBrute.boostIncrease++);
 	}
 	@Override

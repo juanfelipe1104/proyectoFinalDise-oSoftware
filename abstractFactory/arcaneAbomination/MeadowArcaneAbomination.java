@@ -9,6 +9,7 @@ public class MeadowArcaneAbomination extends AbstractArcaneAbomination{
 	}
 	public MeadowArcaneAbomination(CharacterStats characterStats) {
 		super(characterStats);
+		this.increaseStats();
 	}	
 	@Override
 	public void increaseStats() {

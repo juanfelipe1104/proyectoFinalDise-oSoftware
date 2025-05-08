@@ -12,6 +12,7 @@ public class LandOfDragonsBoss extends AbstractBoss{
 	}
 	public LandOfDragonsBoss(CharacterStats characterStats){
 		super(characterStats);
+		this.increaseStats();
 		super.magicAttackAction = new SkillBoostComponentDecorator(super.magicAttackAction,LandOfDragonsBoss.boostIncrease++);
 	}
 	@Override
