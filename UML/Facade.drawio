@@ -1,0 +1,43 @@
+<mxfile host="app.diagrams.net" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/133.0.0.0 Safari/537.36 OPR/118.0.0.0" version="26.2.14">
+  <diagram name="Página-1" id="k2s_u6e_-0R-d-cSg0hB">
+    <mxGraphModel grid="1" page="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="P7cqfvmdvbbO43nqUWIg-1" value="&amp;lt;&amp;lt;GameController&amp;gt;&amp;gt;" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=30;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="270" y="80" width="160" height="64" as="geometry" />
+        </mxCell>
+        <mxCell id="P7cqfvmdvbbO43nqUWIg-3" value="" style="line;strokeWidth=1;fillColor=none;align=left;verticalAlign=middle;spacingTop=-1;spacingLeft=3;spacingRight=3;rotatable=0;labelPosition=right;points=[];portConstraint=eastwest;strokeColor=inherit;" vertex="1" parent="P7cqfvmdvbbO43nqUWIg-1">
+          <mxGeometry y="30" width="160" height="8" as="geometry" />
+        </mxCell>
+        <mxCell id="P7cqfvmdvbbO43nqUWIg-4" value="+ play : void&amp;nbsp;" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" vertex="1" parent="P7cqfvmdvbbO43nqUWIg-1">
+          <mxGeometry y="38" width="160" height="26" as="geometry" />
+        </mxCell>
+        <mxCell id="P7cqfvmdvbbO43nqUWIg-5" value="GameControllerFacade" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="215" y="180" width="270" height="380" as="geometry" />
+        </mxCell>
+        <mxCell id="P7cqfvmdvbbO43nqUWIg-6" value="- player: Character&lt;div&gt;- enemy: Character&lt;/div&gt;&lt;div&gt;- victory: Boolean&lt;/div&gt;&lt;div&gt;- roundNumber: Integer&lt;/div&gt;&lt;div&gt;- worldNumber: Integer&lt;/div&gt;&lt;div&gt;- runNumber: Integer&lt;/div&gt;&lt;div&gt;- endRun: Boolean&lt;/div&gt;&lt;div&gt;- itemDisplay: ItemDisplay&lt;/div&gt;&lt;div&gt;- enemyFactoryContext:EnemyFactoryContext&lt;/div&gt;&lt;div&gt;&lt;div&gt;+ GAME_OPTIONS: List&amp;lt;String&amp;gt; {static}&amp;nbsp;&amp;nbsp;&lt;/div&gt;&lt;div&gt;+ ATK_TYPES: List&amp;lt;String&amp;gt; {static}&amp;nbsp;&amp;nbsp;&lt;/div&gt;&lt;div&gt;+ VICTORY_OPTIONS: List&amp;lt;String&amp;gt; {static}&lt;/div&gt;&lt;/div&gt;&lt;div&gt;&lt;div&gt;- void createPlayer()&amp;nbsp;&amp;nbsp;&lt;/div&gt;&lt;div&gt;- void choosePlayerAction(Integer option)&amp;nbsp;&amp;nbsp;&lt;/div&gt;&lt;div&gt;- void chooseAttackType(Integer option)&amp;nbsp;&amp;nbsp;&lt;/div&gt;&lt;div&gt;- void playTurn()&amp;nbsp;&amp;nbsp;&lt;/div&gt;&lt;div&gt;- void nextTurn()&amp;nbsp;&amp;nbsp;&lt;/div&gt;&lt;div&gt;- void createNextEnemy()&amp;nbsp;&amp;nbsp;&lt;/div&gt;&lt;div&gt;- void changeWorld()&amp;nbsp;&amp;nbsp;&lt;/div&gt;&lt;div&gt;- void checkVictory()&amp;nbsp;&amp;nbsp;&lt;/div&gt;&lt;div&gt;- void chooseVictoryOption(Integer option)&amp;nbsp;&amp;nbsp;&lt;/div&gt;&lt;div&gt;- void startNewRun()&lt;/div&gt;&lt;/div&gt;&lt;div&gt;&lt;div&gt;+ static GameControllerFacade getInstance()&amp;nbsp;&amp;nbsp;&lt;/div&gt;&lt;div&gt;+ static Integer menuSelection(List&amp;lt;?&amp;gt; lista)&lt;/div&gt;&lt;/div&gt;" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" vertex="1" parent="P7cqfvmdvbbO43nqUWIg-5">
+          <mxGeometry y="26" width="270" height="354" as="geometry" />
+        </mxCell>
+        <mxCell id="P7cqfvmdvbbO43nqUWIg-13" value="" style="endArrow=block;dashed=1;endFill=0;endSize=12;html=1;rounded=0;entryX=0.453;entryY=1.008;entryDx=0;entryDy=0;entryPerimeter=0;exitX=0.46;exitY=0.005;exitDx=0;exitDy=0;exitPerimeter=0;" edge="1" parent="1" source="P7cqfvmdvbbO43nqUWIg-5" target="P7cqfvmdvbbO43nqUWIg-4">
+          <mxGeometry width="160" relative="1" as="geometry">
+            <mxPoint x="280" y="270" as="sourcePoint" />
+            <mxPoint x="440" y="270" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="P7cqfvmdvbbO43nqUWIg-14" value="PlayGame" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="640" y="250" width="160" height="34" as="geometry" />
+        </mxCell>
+        <mxCell id="P7cqfvmdvbbO43nqUWIg-16" value="" style="line;strokeWidth=1;fillColor=none;align=left;verticalAlign=middle;spacingTop=-1;spacingLeft=3;spacingRight=3;rotatable=0;labelPosition=right;points=[];portConstraint=eastwest;strokeColor=inherit;" vertex="1" parent="P7cqfvmdvbbO43nqUWIg-14">
+          <mxGeometry y="26" width="160" height="8" as="geometry" />
+        </mxCell>
+        <mxCell id="YBc8lHVq_pck25vRAkxH-1" value="Use" style="endArrow=open;endSize=12;dashed=1;html=1;rounded=0;exitX=0.996;exitY=0.198;exitDx=0;exitDy=0;exitPerimeter=0;entryX=0;entryY=0.75;entryDx=0;entryDy=0;" edge="1" parent="1" source="P7cqfvmdvbbO43nqUWIg-6" target="P7cqfvmdvbbO43nqUWIg-14">
+          <mxGeometry width="160" relative="1" as="geometry">
+            <mxPoint x="600" y="330" as="sourcePoint" />
+            <mxPoint x="640" y="170" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
