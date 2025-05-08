@@ -1,6 +1,7 @@
 package com.utad.ds.proyectoFinal.common;
 
 import com.utad.ds.proyectoFinal.abstractFactory.boss.Boss;
+import com.utad.ds.proyectoFinal.abstractFactory.boss.MostolesBoss;
 import com.utad.ds.proyectoFinal.state.DeadState;
 import com.utad.ds.proyectoFinal.strategy.BalancedBehaviorStrategy;
 import com.utad.ds.proyectoFinal.strategy.EnemyBehaviorStrategy;
@@ -49,5 +50,8 @@ public abstract class Enemy extends GameCharacter{
 	}
 	public Boolean isBoss() {
 		return this instanceof Boss;
+	}
+	public Boolean isFinalBoss() {
+		return this instanceof MostolesBoss;
 	}
 }

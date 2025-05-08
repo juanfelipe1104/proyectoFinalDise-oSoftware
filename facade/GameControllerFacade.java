@@ -9,13 +9,13 @@ import com.utad.ds.proyectoFinal.abstractFactory.LandOfDragonsAbstractFactory;
 import com.utad.ds.proyectoFinal.abstractFactory.MagicForestAbstractFactory;
 import com.utad.ds.proyectoFinal.abstractFactory.MeadowAbstractFactory;
 import com.utad.ds.proyectoFinal.abstractFactory.MostolesAbstractFactory;
-import com.utad.ds.proyectoFinal.abstractFactory.boss.MostolesBoss;
 import com.utad.ds.proyectoFinal.common.Character;
 import com.utad.ds.proyectoFinal.common.Enemy;
 import com.utad.ds.proyectoFinal.common.ItemDisplay;
 import com.utad.ds.proyectoFinal.common.Player;
 
 public class GameControllerFacade implements GameController{
+	public static final Integer MAX_ENEMIES_ROUND = 4;
 	private static GameControllerFacade gameControllerFacade = new GameControllerFacade();
 	public static GameControllerFacade getInstance() {
 		return GameControllerFacade.gameControllerFacade;
@@ -74,9 +74,8 @@ public class GameControllerFacade implements GameController{
 	}
 	private void createPlayer() {
 		Scanner scanner = new Scanner(System.in);
-		String nombre = null;
 		System.out.println("Ingrese el nombre de jugador");
-		nombre = scanner.next();
+		String nombre = scanner.next();
 		this.player = new Player(nombre);
 	}
 	@Override
@@ -162,17 +161,9 @@ public class GameControllerFacade implements GameController{
 	}
 	private void createNextEnemy(){
 		this.roundNumber++;
-		if(((Enemy)this.enemy).isBoss()) {
-			if(this.enemy instanceof MostolesBoss) {
-				this.victory = true;
-			}
-			else {
-				this.worldNumber++;
-				this.changeWorld();
-			}
-		}
+		this.checkPreviousBoss();
 		if(!this.victory) {
-			if(this.roundNumber < 4){
+			if(this.roundNumber < GameControllerFacade.MAX_ENEMIES_ROUND){
 				this.enemy = this.enemyFactoryContext.createRandomEnemy();
 				System.out.println("Se ha generado un nuevo enemigo");
 			}
@@ -183,6 +174,18 @@ public class GameControllerFacade implements GameController{
 			}
 		}
 	}
+	private void checkPreviousBoss() {
+		if(((Enemy)this.enemy).isBoss()) {
+			if(((Enemy)this.enemy).isFinalBoss()) {
+				this.victory = true;
+			}
+			else {
+				this.worldNumber++;
+				this.changeWorld();
+			}
+		}
+	}
+	
 	private void changeWorld() {
 		switch(this.worldNumber) {
 		case 1:
