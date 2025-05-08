@@ -9,7 +9,6 @@ public class MeadowIroncladBrute extends AbstractIronCladBrute{
 	}
 	public MeadowIroncladBrute(CharacterStats characterStats){
 		super(characterStats);
-		this.increaseStats();
 	}
 	@Override
 	public void increaseStats() {

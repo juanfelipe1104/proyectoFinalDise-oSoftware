@@ -12,7 +12,6 @@ public class MagicForestBoss extends AbstractBoss{
 	}
 	public MagicForestBoss(CharacterStats characterStats){
 		super(characterStats);
-		this.increaseStats();
 		super.magicAttackAction = new SkillBoostComponentDecorator(super.magicAttackAction,MagicForestBoss.boostIncrease++);
 	}
 	@Override

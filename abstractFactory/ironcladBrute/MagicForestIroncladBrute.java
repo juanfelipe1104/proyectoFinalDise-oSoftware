@@ -12,7 +12,6 @@ public class MagicForestIroncladBrute extends AbstractIronCladBrute{
 	}
 	public MagicForestIroncladBrute(CharacterStats characterStats){
 		super(characterStats, new DefensiveBehaviorStrategy());
-		this.increaseStats();
 		super.guardAction = new SkillBoostComponentDecorator(super.guardAction, MagicForestIroncladBrute.boostIncrease++);
 	}
 	@Override
