@@ -39,6 +39,7 @@ public class ItemDisplay {
 		this.item = this.items.getFirst();
 	}
 	public void selectUpgrade(){
+		System.out.println("Tienes la oportunidad de elegir una mejora");
 		Integer opcionElegida = -1;
 		List<String> opciones = new ArrayList<String>();
 		opciones.add(this.item.toString());
